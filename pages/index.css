@@ -65,3 +65,24 @@
   background-position: center;
   margin-right: 24px;
 }
+.cards {
+  /*fonts*/
+}
+.card__list {
+  display: grid;
+}
+.card__image {
+  width: 282px;
+  height: 282px;
+}
+.card__description {
+  display: flex;
+  background-color: #ffff;
+  color: #000;
+  padding-top: 25px;
+  padding-bottom: 25px;
+  padding-left: 20px;
+}
+.card__like-button {
+  background: transparent url(../images/Vector\\(4\)) center no-repeat;
+}
