@@ -1,0 +1,67 @@
+@import url(../vendor/normalize.css);
+@import url(../vendor/fonts.css);
+.page {
+  font-family: Inter, Arial, Helvetica, sans-serif;
+  background-color: black;
+  color: #ffff;
+}
+.page__content {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+.page__section {
+  max-width: 880px;
+  width: 100%;
+  position: relative;
+  margin: 0 auto;
+}
+.header {
+  margin-top: 40px;
+}
+.profile {
+  display: flex;
+  align-items: center;
+  padding-top: 40px;
+}
+
+.profile__info {
+  display: grid;
+  grid-template-areas: "title-button" "discription discription";
+  grid-template-columns: minmax(auto, 373px);
+}
+.profile__edit-button {
+  background: transparent url(../images/Edit\ Button.jpg) center no-repeat;
+  height: 24px;
+  width: 24px;
+  grid-area: button;
+}
+
+.profile__add-button {
+  background: transparent url(../images/Add\ Button.jpg) center no-repeat;
+  width: 150px;
+  height: 50px;
+  margin-left: auto;
+}
+.profile__title {
+  font-size: 42px;
+  line-height: 48px;
+  font-weight: 500;
+  grid-area: title;
+  margin: 0;
+}
+.profile__discription {
+  font-size: 18px;
+  line-height: 22px;
+  font-weight: 400;
+  grid-area: discription;
+  margin: 0;
+}
+.profile__image {
+  height: 128px;
+  width: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  background-position: center;
+  margin-right: 24px;
+}
