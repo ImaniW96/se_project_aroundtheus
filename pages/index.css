@@ -27,7 +27,9 @@
 
 .profile__info {
   display: grid;
-  grid-template-areas: "title-button" "description description";
+  grid-template-areas:
+    "title button"
+    "description description";
   grid-template-columns: minmax(auto, 373px);
 }
 .profile__edit-button {
@@ -103,4 +105,10 @@
   background: transparent url(../images/Vector\\4\) center no-repeat;
   width: 21px;
   height: 18px;
+}
+@media screen and (max-width: 480px) {
+  .profile {
+    background-color: pink;
+    flex-direction: column;
+  }
 }
