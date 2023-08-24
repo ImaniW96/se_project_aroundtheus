@@ -60,7 +60,7 @@
   margin: 0;
 }
 .profile__image {
-  height: 128px;
+  height: 120px;
   width: 120px;
   border-radius: 50%;
   object-fit: cover;
@@ -90,6 +90,16 @@
   height: 282px;
   border-radius: 10px;
 }
+.card__title {
+  max-width: 220px;
+  font-size: 24px;
+  font-weight: 900;
+  line-height: 29px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  margin: 0;
+}
 .card__description {
   display: flex;
   background-color: #ffff;
@@ -100,6 +110,10 @@
   padding-right: 20px;
   align-items: center;
   justify-content: space-between;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  max-width: 373px;
 }
 .card__like-button {
   background: transparent url(../images/Vector\\4\) center no-repeat;
@@ -110,5 +124,19 @@
   .profile {
     background-color: pink;
     flex-direction: column;
+  }
+  .profile__info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+  }
+  .profile__description {
+    width: 100%;
+    text-align: center;
+  }
+  .profile__add-button {
+    margin: 0;
+    width: 100px;
   }
 }
