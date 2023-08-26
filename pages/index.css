@@ -9,6 +9,9 @@
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+  max-width: 880px;
+  justify-content: center;
+  margin: 0 auto;
 }
 .page__section {
   max-width: 880px;
@@ -40,7 +43,7 @@
 }
 
 .profile__add-button {
-  background: transparent url(../images/Add\ Button.jpg) center no-repeat;
+  background: transparent url(../images/Vector\\(5\)) center no-repeat;
   width: 150px;
   height: 50px;
   margin-left: auto;
@@ -139,4 +142,20 @@
     margin: 0;
     width: 100px;
   }
+}
+.footer {
+  max-width: 880px;
+  width: 100%;
+  position: relative;
+  padding-top: 67px;
+  padding-bottom: 60px;
+  margin: 0 auto;
+  left: 200px;
+}
+.footer__copyright {
+  color: grey;
+  max-width: 282px;
+  margin: 0;
+  font-size: 18px;
+  line-height: 21px;
 }
