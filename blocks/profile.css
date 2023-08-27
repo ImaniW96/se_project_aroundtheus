@@ -6,7 +6,7 @@
 
 .profile__info {
   display: grid;
-  align-items: baseline;
+  align-items: center;
   grid-template-areas:
     "title button"
     "description description";
