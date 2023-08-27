@@ -6,6 +6,7 @@
 
 .profile__info {
   display: grid;
+  align-items: baseline;
   grid-template-areas:
     "title button"
     "description description";
@@ -31,6 +32,7 @@
   font-weight: 500;
   grid-area: title;
   margin: 0;
+  align-items: baseline;
 }
 .profile__description {
   font-size: 18px;
