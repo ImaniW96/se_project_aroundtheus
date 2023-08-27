@@ -1,0 +1,15 @@
+.footer {
+  max-width: 880px;
+  width: 100%;
+  padding-top: 67px;
+  padding-bottom: 60px;
+  margin: 0 auto;
+  left: 200px;
+}
+.footer__copyright {
+  color: grey;
+  max-width: 282px;
+  margin: 0;
+  font-size: 18px;
+  line-height: 21px;
+}
