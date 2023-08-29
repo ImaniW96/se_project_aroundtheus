@@ -3,11 +3,3 @@
   border-bottom: 1px solid#545454;
   padding-bottom: 30px;
 }
-@media screen and (max-width: 619px) {
-  .profile__info {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    width: 100%;
-  }
-}
