@@ -51,23 +51,50 @@
   background-position: center;
   margin-right: 24px;
 }
-@media screen and (max-width: 480px) {
+@media screen and (max-width: 619px) {
   .profile {
-    background-color: pink;
     flex-direction: column;
+  }
+  .profile__title {
+    font-size: 24px;
   }
   .profile__info {
     display: flex;
-    flex-direction: column;
+    flex-wrap: wrap;
     justify-content: center;
     width: 100%;
   }
   .profile__description {
     width: 100%;
     text-align: center;
+    padding-bottom: 30px;
   }
   .profile__add-button {
     margin: 0;
-    width: 100px;
+    width: 75%;
+  }
+}
+
+@media screen and (max-width: 919px) {
+  .profile {
+    flex-direction: column;
+  }
+  .profile__title {
+    font-size: 24px;
+  }
+  .profile__info {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+  }
+  .profile__description {
+    width: 100%;
+    text-align: center;
+    padding-bottom: 30px;
+  }
+  .profile__add-button {
+    margin: 0;
+    width: 75%;
   }
 }
