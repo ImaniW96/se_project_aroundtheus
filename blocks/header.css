@@ -1,13 +1,19 @@
 .header {
   margin-top: 45px;
   border-bottom: 1px solid#545454;
+  padding-bottom: 30px;
 }
-@media screen and (max-width: 904px) {
+@media screen and (max-width: 768px) {
   .header {
     width: 100%;
   }
 }
-@media screen and (max-width: 612px) {
+@media screen and (max-width: 520px) {
+  .profile__title {
+    font-size: 22px;
+  }
+}
+@media screen and (max-width: 304px) {
   .header {
     min-height: 85px;
     max-width: 581px;
