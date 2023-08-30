@@ -13,3 +13,23 @@
   font-size: 18px;
   line-height: 21px;
 }
+@media screen and (max-width: 619px) {
+  .footer__copyright {
+    color: grey;
+    max-width: 282px;
+    margin: 0;
+    font-size: 18px;
+    line-height: 21px;
+    padding-left: 145px;
+  }
+}
+@media screen and (max-width: 320px) {
+  .footer__copyright {
+    color: grey;
+    max-width: 282px;
+    margin: 0;
+    font-size: 18px;
+    line-height: 21px;
+    padding-left: 0;
+  }
+}
