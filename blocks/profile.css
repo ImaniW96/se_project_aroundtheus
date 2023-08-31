@@ -123,7 +123,7 @@
     width: 100%;
   }
   .profile__description {
-    width: 282px;
+    max-width: 282px;
     text-align: center;
     padding-bottom: 30px;
     height: 14px;
@@ -132,5 +132,9 @@
     margin: 0;
     width: 282px;
     border-style: 2px solid #fff;
+  }
+  .profile__edit-button {
+    max-width: 18px;
+    max-height: 18px;
   }
 }
