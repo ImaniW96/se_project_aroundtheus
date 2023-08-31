@@ -11,5 +11,6 @@
   .header__image {
     width: 124px;
     height: 24px;
+    padding-left: 27px;
   }
 }
