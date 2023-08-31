@@ -5,8 +5,8 @@
 }
 @media screen and (max-width: 320px) {
   .header {
-    margin-top: 28px;
-    margin-bottom: 32px;
+    margin-top: 32px;
+    margin-bottom: 0;
   }
   .header__image {
     width: 124px;
