@@ -18,3 +18,8 @@
   position: relative;
   margin: 0 auto;
 }
+@media screen and (max-width: 320px) {
+  .page__content {
+    padding: 10px 0 0 0;
+  }
+}

@@ -20,7 +20,7 @@
   grid-area: button;
   align-self: center;
   margin-left: 25px;
-  border-width: 1px;
+  border: 1px solid #ffff;
 }
 
 .profile__add-button {
@@ -29,7 +29,7 @@
   height: 50px;
   margin-left: auto;
   border-radius: 2px;
-  border-width: 2px;
+  border: 2px solid #ffff;
 }
 .profile__title {
   font-size: 42px;
