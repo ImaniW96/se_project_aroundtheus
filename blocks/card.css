@@ -8,7 +8,8 @@
 .card__image {
   width: 282px;
   height: 282px;
-  border-radius: 10px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
 }
 .card__title {
   max-width: 220px;
@@ -30,9 +31,9 @@
   padding-right: 20px;
   align-items: center;
   justify-content: space-between;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  overflow: hidden;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+
   max-width: 373px;
 }
 .card__like-button {
@@ -40,4 +41,7 @@
   width: 21px;
   height: 18px;
   border-style: none;
+}
+.card__like-button:hover {
+  opacity: 0.6;
 }
