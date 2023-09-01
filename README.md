@@ -24,3 +24,5 @@ Project 3: Around the U.S.
 
 This project showcasts Jacques Cousteau exploring the world. The six cards highlight some of the beautiful
 places he has explored.
+
+In this project with the help of media queries, every element was configured to display correctly on popular screen sizes. Display grid as well as flex box created the layout of the cards. And with Figma the design was provided.
