@@ -107,4 +107,12 @@
   .profile__info {
     padding-top: 26.25px;
   }
+  .profile__edit-button {
+    margin-left: 0;
+    width: 18px;
+    height: 18px;
+  }
+  .profile__description {
+    font-size: 14px;
+  }
 }
