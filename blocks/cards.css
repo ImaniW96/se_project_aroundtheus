@@ -1,6 +1,5 @@
 .cards {
-  /*fonts*/
-  font-family: "Inter, san-serif";
+  font-family: "Inter," Arial, Helvetica, sans-serif;
   margin-top: 47px;
 }
 .cards__list {
