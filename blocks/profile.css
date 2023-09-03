@@ -90,6 +90,9 @@
     margin: 0;
     width: 282px;
   }
+  .profile__image {
+    margin-right: 0;
+  }
 }
 @media screen and (max-width: 619px) {
   .profile__image {
@@ -105,7 +108,7 @@
     line-height: 26.63px;
   }
   .profile__info {
-    padding-top: 26.25px;
+    padding-top: 30px;
   }
   .profile__edit-button {
     margin-left: 0;

@@ -6,7 +6,6 @@
   margin: 0 auto;
   display: flex;
   align-items: center;
-  padding-top: 48px;
 }
 .footer__copyright {
   color: #545454;
@@ -23,6 +22,7 @@
 @media screen and (max-width: 320px) {
   .footer {
     padding-bottom: 36px;
+    padding-top: 48px;
   }
   .footer__copyright {
     padding-left: 0;
