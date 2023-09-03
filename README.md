@@ -26,3 +26,5 @@ This project showcasts Jacques Cousteau exploring the world. The six cards highl
 places he has explored.
 
 In this project with the help of media queries, every element was configured to display correctly on popular screen sizes. Display grid as well as flex box created the layout of the cards. And with Figma the design was provided.
+
+Link to project: https://imaniw96.github.io/se_project_aroundtheus/
