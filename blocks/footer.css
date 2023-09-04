@@ -28,6 +28,7 @@
   .footer {
     padding-bottom: 36px;
     padding-top: 48px;
+    max-width: 282px;
   }
   .footer__copyright {
     padding-left: 0;
