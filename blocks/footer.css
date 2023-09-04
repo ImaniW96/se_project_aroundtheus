@@ -14,6 +14,11 @@
   font-size: 18px;
   line-height: 21px;
 }
+@media screen and (max-width: 919px) {
+  .footer__copyright {
+    padding-left: 0;
+  }
+}
 @media screen and (max-width: 619px) {
   .footer__copyright {
     padding-left: 145px;
