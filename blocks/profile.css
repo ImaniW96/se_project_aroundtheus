@@ -98,6 +98,11 @@
   .profile__image {
     margin-right: 0;
   }
+  .profile__edit-button {
+    margin-left: 0;
+    max-height: 18px;
+    max-width: 18px;
+  }
 }
 
 @media screen and (max-width: 320px) {
