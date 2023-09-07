@@ -1,5 +1,5 @@
 .page {
-  font-family: Inter, Arial, Helvetica, sans-serif;
+  font-family: "Inter", Arial, Helvetica, sans-serif;
   background-color: black;
   color: #ffff;
 }
@@ -18,7 +18,7 @@
   position: relative;
   margin: 0 auto;
 }
-@media screen and (max-width: 320px) {
+@media screen and (max-width: 620px) {
   .page__content {
     padding: 0;
   }

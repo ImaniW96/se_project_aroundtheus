@@ -14,14 +14,10 @@
   font-size: 18px;
   line-height: 21px;
 }
-@media screen and (max-width: 919px) {
+
+@media screen and (max-width: 620px) {
   .footer__copyright {
-    padding-left: 150px;
-  }
-}
-@media screen and (max-width: 619px) {
-  .footer__copyright {
-    padding-left: 145px;
+    padding-left: 20px;
   }
 }
 @media screen and (max-width: 320px) {
@@ -29,11 +25,9 @@
     padding-bottom: 36px;
     padding-top: 48px;
     max-width: 282px;
-    max-height: 14px;
   }
   .footer__copyright {
     padding-left: 0;
-    margin-left: 19px;
     font-size: 14px;
     line-height: 16.94px;
   }
