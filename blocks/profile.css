@@ -31,7 +31,6 @@
   margin-left: auto;
   border-radius: 2px;
   border: 2px solid #fff;
-  opacity: 0.6;
   cursor: pointer;
   transition: 0.3s ease;
 }
@@ -122,9 +121,6 @@
     padding-top: 30px;
   }
   .profile__edit-button {
-    margin-left: 0;
-    width: 18px;
-    height: 18px;
     margin-right: 0;
   }
   .profile__description {
