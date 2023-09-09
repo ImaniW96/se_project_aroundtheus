@@ -54,10 +54,16 @@
   border: none;
 }
 .modal__button:hover {
+  opacity: 0.9;
   transition: 0.3s ease;
 }
 .modal__close:hover {
+  opacity: 0.9;
   transition: 0.3s ease;
+}
+.modal__form {
+  width: 358px;
+  height: 27.26px;
 }
 /*@media screen and (max-width: 630px) {
   .modal {
