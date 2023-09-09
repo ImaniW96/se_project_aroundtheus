@@ -52,6 +52,7 @@
   font-weight: 400;
   margin-top: 48px;
   border: none;
+  border-radius: 2px;
 }
 .modal__button:hover {
   opacity: 0.9;
@@ -64,9 +65,23 @@
 .modal__form {
   width: 358px;
   height: 27.26px;
+  border: none;
+  grid-template-columns: auto;
+  display: grid;
+  grid-gap: 27px;
 }
-/*@media screen and (max-width: 630px) {
-  .modal {
+
+@media screen and (max-width: 630px) {
+  .modal__container {
+    width: 282px;
+    height: 330px;
+  }
+  .modal__button {
+    width: 238px;
+    height: 46px;
+  }
+  .modal__form {
+    width: 238px;
+    height: 27px;
   }
 }
-*/
