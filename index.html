@@ -145,8 +145,8 @@
       </footer>
     </div>
     <div class="modal" id="profile-edit-modal">
-      <div class="modal__container" id="profile-exit-modal">
-        <button class="modal__close"></button>
+      <div class="modal__container">
+        <button class="modal__close" id="close-button"></button>
         <form class="modal__form">
           <p class="modal__heading">Edit Profile</p>
           <input
@@ -154,12 +154,14 @@
             name="title"
             placeholder="Jacques Cousteau"
             class="modal__form"
+            id="profile-title-input"
           />
           <input
             type="text"
             name="description"
             placeholder="Explorer"
             class="modal__form"
+            id="profile-description-input"
           />
           <button class="modal__button">Save</button>
         </form>

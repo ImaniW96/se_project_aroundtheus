@@ -32,13 +32,19 @@ console.log(initialCards);
 
 const profileEditButton = document.querySelector("#profile-edit-button");
 const profileEditModal = document.querySelector("#profile-edit-modal");
+const profileTitle = document.querySelector(".profile__title");
+const profileDescription = document.querySelector(".profile__description");
+const profileTitleInput = document.querySelector("#profile-title-input");
+const profileDescriptionInput = document.querySelector(
+  "#profile-description-input"
+);
 
 profileEditButton.addEventListener("click", () => {
   profileEditModal.classList.add("modal__opened");
 });
 
-const profileExitModal = document.querySelector("#profile-exit-modal");
+const profileExitModal = document.querySelector("#close-button");
 
 profileExitModal.addEventListener("click", () => {
-  profileExitModal.classList.add("modal__exit");
+  profileEditModal.classList.remove("modal__opened");
 });

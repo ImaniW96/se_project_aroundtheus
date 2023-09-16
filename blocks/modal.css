@@ -15,9 +15,9 @@
 .modal__opened {
   display: flex;
 }
-.modal__exit {
+/*.modal__exit {
   display: none;
-}
+}*/
 .modal__container {
   background-color: #fff;
   margin: auto;
