@@ -36,3 +36,9 @@ const profileEditModal = document.querySelector("#profile-edit-modal");
 profileEditButton.addEventListener("click", () => {
   profileEditModal.classList.add("modal__opened");
 });
+
+const profileExitModal = document.querySelector("#profile-exit-modal");
+
+profileExitModal.addEventListener("click", () => {
+  profileExitModal.classList.add("modal__exit");
+});
