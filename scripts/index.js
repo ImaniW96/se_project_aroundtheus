@@ -41,7 +41,7 @@ const profileDescriptionInput = document.querySelector(
 const profileEditForm = profileEditModal.querySelector(".modal__form");
 
 function closePopop() {
-  profileEditModal.classList.remove("modal_opened");
+  profileEditModal.classList.remove("modal__opened");
 }
 profileEditButton.addEventListener("click", () => {
   profileTitleInput.value = profileTitle.textContent;
@@ -49,9 +49,6 @@ profileEditButton.addEventListener("click", () => {
   profileEditModal.classList.add("modal__opened");
 });
 
-profileEditCloseButton.addEventListener("click", () => {
-  closePopop();
-});
 const profileExitModal = document.querySelector("#close-button");
 
 profileExitModal.addEventListener("click", () => {
