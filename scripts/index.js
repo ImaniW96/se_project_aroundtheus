@@ -48,7 +48,8 @@ profileEditButton.addEventListener("click", () => {
   profileDescriptionInput.value = profileDescription.textContent;
   profileEditModal.classList.add("modal__opened");
 });
-profileEditCloseButton.addEventListener("close", () => {
+
+profileEditCloseButton.addEventListener("click", () => {
   closePopop();
 });
 const profileExitModal = document.querySelector("#close-button");
