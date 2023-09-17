@@ -40,6 +40,8 @@ const profileDescriptionInput = document.querySelector(
 );
 
 profileEditButton.addEventListener("click", () => {
+  profileTitleInput.value = profileTitle.textContent;
+
   profileEditModal.classList.add("modal__opened");
 });
 
