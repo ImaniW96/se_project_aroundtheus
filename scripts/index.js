@@ -65,35 +65,34 @@ profileEditForm.addEventListener("submit", (e) => {
 });
 
 const cardTemplate = document
-.querySelector("#card-Template")
-.content.querySelector(".card");
+  .querySelector("#card-template")
+  .content.querySelector(".card");
 
- initialCards.forEach((cardData) => {
- const cardTemplate = cardElement.cloneNode(true);
- const cardImageEl = cardElement.querySelector(".card-image");
-const cardTitleEl = cardElement.querySelector(".card-title");
-const cardTitleEl.TextContent = cardData.name;
-return cardElement;
-const cardElement = getCardElement(cardData);
-cardListEl.prepend(cardElement);
+initialCards.forEach((cardData) => {
+  const cardTemplate = cardElement.cloneNode(true);
+  const cardImageEl = cardElement.querySelector(".card-image");
+  const cardTitleEl = cardElement.querySelector(".card-title");
+
+  return cardElement;
+  const cardElement = getCardElement(cardData);
+  cardListEl.prepend(cardElement);
 });
-  
 
 // for (let i = 0; i < initialCards.length; i++) {
-  // const card = initialCards[i];
-  // const cardElement = getCardElement(card);
-  // CardElement.append(cardElement);
+// const card = initialCards[i];
+// const cardElement = getCardElement(card);
+// CardElement.append(cardElement);
 // }
 // function getCardElement(data) {
-  // const cardElement = cardElement.cloneNode(true);
-  // const Title = cardElement.querySelector(".card__title");
-  // const Image = cardElement.querySelector(".card__image");
-  // cardImage.setAttribute("src", data.link);
-  // cardImage.setAttribute("alt", data.name);
-  // cardTitle.textContent = data.name;
-  // return cardElement;
+// const cardElement = cardElement.cloneNode(true);
+// const Title = cardElement.querySelector(".card__title");
+// const Image = cardElement.querySelector(".card__image");
+// cardImage.setAttribute("src", data.link);
+// cardImage.setAttribute("alt", data.name);
+// cardTitle.textContent = data.name;
+// return cardElement;
 // }
 // initialCards.forEach((data) => {
-  // const getCardElement = getCardElement(data);
-  // cardElement.append(cardElement);
+// const getCardElement = getCardElement(data);
+// cardElement.append(cardElement);
 // });
