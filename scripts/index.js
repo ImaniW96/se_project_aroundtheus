@@ -39,13 +39,12 @@ const profileDescriptionInput = document.querySelector(
   "#profile-description-input"
 );
 const profileEditForm = profileEditModal.querySelector(".modal__form");
-const cardListEl = document.querySelector('.card-title')
+const cardListEl = document.querySelector(".card-title");
 
 function closePopop() {
   profileEditModal.classList.remove("modal__opened");
 }
-function getCardElement(cardData){
-}
+function getCardElement(cardData) {}
 profileEditButton.addEventListener("click", () => {
   profileTitleInput.value = profileTitle.textContent;
   profileDescriptionInput.value = profileDescription.textContent;
@@ -64,12 +63,37 @@ profileEditForm.addEventListener("submit", (e) => {
   profileDescription.textContent = profileDescriptionInput.value;
   closePopop();
 });
-initialCards.forEach((cardData) => {
-  const cardTemplate = cardElement.cloneNode(true);
-  const cardImageEl = cardElement.querySelector(".card-image");
-  const cardTitleEl = cardElement.querySelector(".card-title");
-  const cardTitleEl.textContent= cardData.name;
-  return cardElement
-  const cardElement = getCardElement(cardData)
-  cardListEl.prepend(cardElement)
+
+const cardTemplate = document
+.querySelector("#card-Template")
+.content.querySelector(".card");
+
+ initialCards.forEach((cardData) => {
+ const cardTemplate = cardElement.cloneNode(true);
+ const cardImageEl = cardElement.querySelector(".card-image");
+const cardTitleEl = cardElement.querySelector(".card-title");
+const cardTitleEl.TextContent = cardData.name;
+return cardElement;
+const cardElement = getCardElement(cardData);
+cardListEl.prepend(cardElement);
 });
+  
+
+// for (let i = 0; i < initialCards.length; i++) {
+  // const card = initialCards[i];
+  // const cardElement = getCardElement(card);
+  // CardElement.append(cardElement);
+// }
+// function getCardElement(data) {
+  // const cardElement = cardElement.cloneNode(true);
+  // const Title = cardElement.querySelector(".card__title");
+  // const Image = cardElement.querySelector(".card__image");
+  // cardImage.setAttribute("src", data.link);
+  // cardImage.setAttribute("alt", data.name);
+  // cardTitle.textContent = data.name;
+  // return cardElement;
+// }
+// initialCards.forEach((data) => {
+  // const getCardElement = getCardElement(data);
+  // cardElement.append(cardElement);
+// });
