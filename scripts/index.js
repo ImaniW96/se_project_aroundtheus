@@ -73,8 +73,8 @@ initialCards.forEach((cardData) => {
   const cardImageEl = cardElement.querySelector(".card-image");
   const cardTitleEl = cardElement.querySelector(".card-title");
   return cardElement;
-  const cardElement = getCardElement(cardData);
-  cardListEl.prepend(cardElement);
+  //const cardElement = getCardElement(cardData);
+  //cardListEl.prepend(cardElement);
 });
 
 // for (let i = 0; i < initialCards.length; i++) {
