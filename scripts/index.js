@@ -69,10 +69,9 @@ const cardTemplate = document
   .content.querySelector(".card");
 
 initialCards.forEach((cardData) => {
-  const cardTemplate = cardElement.cloneNode(true);
+  const cardElement = cardTemplate.cloneNode(true);
   const cardImageEl = cardElement.querySelector(".card-image");
   const cardTitleEl = cardElement.querySelector(".card-title");
-
   return cardElement;
   const cardElement = getCardElement(cardData);
   cardListEl.prepend(cardElement);
