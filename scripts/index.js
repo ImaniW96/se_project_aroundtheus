@@ -64,34 +64,26 @@ profileEditForm.addEventListener("submit", (e) => {
   closePopop();
 });
 
-const cardTemplate = document
-  .querySelector("#card-template")
-  .content.querySelector(".card");
+const cardList = document.querySelector(".cards__list");
+const cardTemplate =
+  document.querySelector("#card-template").content.firstElementChild;
 
-initialCards.forEach((cardData) => {
-  const cardElement = cardTemplate.cloneNode(true);
-  const cardImageEl = cardElement.querySelector(".card-image");
-  const cardTitleEl = cardElement.querySelector(".card-title");
-  return cardElement;
-  //const cardElement = getCardElement(cardData);
-  //cardListEl.prepend(cardElement);
-});
-
-// for (let i = 0; i < initialCards.length; i++) {
-// const card = initialCards[i];
-// const cardElement = getCardElement(card);
-// CardElement.append(cardElement);
-// }
-// function getCardElement(data) {
-// const cardElement = cardElement.cloneNode(true);
-// const Title = cardElement.querySelector(".card__title");
-// const Image = cardElement.querySelector(".card__image");
-// cardImage.setAttribute("src", data.link);
-// cardImage.setAttribute("alt", data.name);
-// cardTitle.textContent = data.name;
+// initialCards.forEach((cardData) => {
+// const cardElement = cardTemplate.cloneNode(true);
+// const cardImageEl = cardElement.querySelector(".card__image");
+// const cardTitleEl = cardElement.querySelector(".card__title");
+// cardTitleEl.textContent = cardData.name;
 // return cardElement;
-// }
-// initialCards.forEach((data) => {
-// const getCardElement = getCardElement(data);
-// cardElement.append(cardElement);
+//const cardElement = getCardElement(cardData);
+// cardListEl.append(cardElement);
 // });
+
+function getCardElement(cardData) {
+  const cardElement = cardTemplate.cloneNode(true);
+  const cardImageEl = cardElement.querySelector(".card__image");
+  const cardTitleEl = cardElement.querySelector(".card__title");
+  cardImageEl.setAtrribute("src", cardData.link);
+  cardImageEl.setAtrribute("alt", cardData.name);
+  cardTitleEl.textContent = cardData.name;
+  return cardElement;
+}
