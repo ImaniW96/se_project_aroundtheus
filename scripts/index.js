@@ -74,7 +74,7 @@ initialCards.forEach((cardData) => {
   const cardTitleEl = cardElement.querySelector(".card__title");
   cardTitleEl.textContent = cardData.name;
   return cardElement;
-  const cardElement = getCardElement(cardData);
+  // const cardElement = getCardElement(cardData);
   cardListEl.append(cardElement);
 });
 
