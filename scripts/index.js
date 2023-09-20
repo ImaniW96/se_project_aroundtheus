@@ -39,7 +39,7 @@ const profileDescriptionInput = document.querySelector(
   "#profile-description-input"
 );
 const profileEditForm = profileEditModal.querySelector(".modal__form");
-const cardListEl = document.querySelector(".card-title");
+const cardListEl = document.querySelector(".card__title");
 
 function closePopop() {
   profileEditModal.classList.remove("modal__opened");
@@ -68,15 +68,20 @@ const cardList = document.querySelector(".cards__list");
 const cardTemplate =
   document.querySelector("#card-template").content.firstElementChild;
 
-// initialCards.forEach((cardData) => {
-// const cardElement = cardTemplate.cloneNode(true);
-// const cardImageEl = cardElement.querySelector(".card__image");
-// const cardTitleEl = cardElement.querySelector(".card__title");
-// cardTitleEl.textContent = cardData.name;
-// return cardElement;
-//const cardElement = getCardElement(cardData);
-// cardListEl.append(cardElement);
-// });
+initialCards.forEach((cardData) => {
+  const cardElement = cardTemplate.cloneNode(true);
+  const cardImageEl = cardElement.querySelector(".card__image");
+  const cardTitleEl = cardElement.querySelector(".card__title");
+  cardTitleEl.textContent = cardData.name;
+  return cardElement;
+  const cardElement = getCardElement(cardData);
+  cardListEl.append(cardElement);
+});
+
+initialCards.forEach((cardData) => {
+  const cardElement = getCardElement(cardData);
+  cardListEl.append(cardElement);
+});
 
 function getCardElement(cardData) {
   const cardElement = cardTemplate.cloneNode(true);
