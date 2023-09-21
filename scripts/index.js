@@ -23,12 +23,9 @@ const initialCards = [
     name: "Lago di Braies",
     link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/lago.jpg ",
   },
-  {
-    name: "Yosemite Valley",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/yosemite.jpg",
-  },
 ];
-console.log(initialCards);
+
+//Elements
 
 const profileEditButton = document.querySelector("#profile-edit-button");
 const profileEditModal = document.querySelector("#profile-edit-modal");
@@ -39,7 +36,13 @@ const profileDescriptionInput = document.querySelector(
   "#profile-description-input"
 );
 const profileEditForm = profileEditModal.querySelector(".modal__form");
-const cardListEl = document.querySelector(".card__title");
+const cardsList = document.querySelector(".cards__list");
+const cardList = document.querySelector(".cards__list");
+const cardTemplate =
+  document.querySelector("#card-template").content.firstElementChild;
+const profileExitModal = document.querySelector("#close-button");
+
+//Functions
 
 function closePopop() {
   profileEditModal.classList.remove("modal__opened");
@@ -50,8 +53,17 @@ profileEditButton.addEventListener("click", () => {
   profileDescriptionInput.value = profileDescription.textContent;
   profileEditModal.classList.add("modal__opened");
 });
+function getCardElement(cardData) {
+  const cardElement = cardTemplate.cloneNode(true);
+  const cardImageEl = cardElement.querySelector(".card__image");
+  const cardTitleEl = cardElement.querySelector(".card__title");
+  cardImageEl.setAttribute("src", cardData.link);
+  cardImageEl.setAttribute("alt", cardData.name);
+  cardTitleEl.textContent = cardData.name;
+  return cardElement;
+}
 
-const profileExitModal = document.querySelector("#close-button");
+// EventListener
 
 profileExitModal.addEventListener("click", () => {
   profileEditModal.classList.remove("modal__opened");
@@ -64,31 +76,8 @@ profileEditForm.addEventListener("submit", (e) => {
   closePopop();
 });
 
-const cardList = document.querySelector(".cards__list");
-const cardTemplate =
-  document.querySelector("#card-template").content.firstElementChild;
-
-initialCards.forEach((cardData) => {
-  const cardElement = cardTemplate.cloneNode(true);
-  const cardImageEl = cardElement.querySelector(".card__image");
-  const cardTitleEl = cardElement.querySelector(".card__title");
-  cardTitleEl.textContent = cardData.name;
-  return cardElement;
-  // const cardElement = getCardElement(cardData);
-  cardListEl.append(cardElement);
-});
-
+// ititialization
 initialCards.forEach((cardData) => {
   const cardElement = getCardElement(cardData);
-  cardListEl.append(cardElement);
+  cardsList.append(cardElement);
 });
-
-function getCardElement(cardData) {
-  const cardElement = cardTemplate.cloneNode(true);
-  const cardImageEl = cardElement.querySelector(".card__image");
-  const cardTitleEl = cardElement.querySelector(".card__title");
-  cardImageEl.setAtrribute("src", cardData.link);
-  cardImageEl.setAtrribute("alt", cardData.name);
-  cardTitleEl.textContent = cardData.name;
-  return cardElement;
-}
