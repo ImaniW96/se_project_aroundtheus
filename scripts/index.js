@@ -65,15 +65,15 @@ function getCardElement(cardData) {
 
 // EventListener
 
-function closePopup() {
-  profileEditModal.classList.remove("modal_opened");
-}
+profileExitModal.addEventListener("click", () => {
+  closePopup();
+});
 
 profileEditForm.addEventListener("submit", (e) => {
   e.preventDefault();
   profileTitle.textContent = profileTitleInput.value;
   profileDescription.textContent = profileDescriptionInput.value;
-  closePopop();
+  closePopp();
 });
 
 // ititialization
