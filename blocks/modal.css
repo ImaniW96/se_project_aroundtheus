@@ -49,7 +49,7 @@
   font-weight: 900;
 }
 .modal__button {
-  width: 358px;
+  max-width: 358px;
   height: 50.51px;
   background: #000;
   color: rgba(255, 255, 255, 1);
@@ -62,13 +62,15 @@
 .modal__button:hover {
   opacity: 0.9;
   transition: 0.3s ease;
+  cursor: pointer;
 }
 .modal__close:hover {
   opacity: 0.9;
   transition: 0.3s ease;
+  cursor: pointer;
 }
 .modal__form {
-  width: 358px;
+  max-width: 358px;
   height: 27.26px;
   border: none;
   grid-template-columns: auto;
