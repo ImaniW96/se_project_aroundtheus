@@ -43,6 +43,7 @@
             type="button"
             class="profile__add-button"
             id="profile__add-button"
+            aria-label="addbutton"
           ></button>
         </section>
         <section class="cards">
@@ -55,24 +56,26 @@
     </div>
     <div class="modal" id="profile-edit-modal">
       <div class="modal__container">
-        <button class="modal__close" id="close-button"></button>
+        <button
+          class="modal__close"
+          id="close-button"
+          aria-label="closebutton"
+        ></button>
         <form class="modal__form">
           <p class="modal__heading">Edit Profile</p>
           <input
             type="text"
-            name="title"
-            placeholder="Jacques Cousteau"
-            class="modal__form"
+            name="name"
             id="profile-title-input"
+            class="modal__input"
           />
           <input
             type="text"
             name="description"
-            placeholder="Explorer"
-            class="modal__form"
             id="profile-description-input"
+            class="modal__input"
           />
-          <button class="modal__button">Save</button>
+          <button class="modal__button" aria-label="savebutton">Save</button>
         </form>
       </div>
     </div>
