@@ -47,7 +47,7 @@ const profileExitModal = document.querySelector("#close-button");
 function closePopup() {
   profileEditModal.classList.remove("modal_opened");
 }
-//function getCardElement(cardData) {}
+
 profileEditButton.addEventListener("click", () => {
   profileTitleInput.value = profileTitle.textContent;
   profileDescriptionInput.value = profileDescription.textContent;
