@@ -46,3 +46,6 @@
   opacity: 0.5;
   transition: 0.3s ease;
 }
+.card__like-button_active {
+  background-image: url(../images/active.svg);
+}
