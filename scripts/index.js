@@ -44,6 +44,7 @@ const cardList = document.querySelector(".cards__list");
 const cardTemplate =
   document.querySelector("#card-template").content.firstElementChild;
 const profileExitModal = document.querySelector("#close-button");
+const profileExitAddModal = document.querySelector("#close-button");
 // const cardTitleInput = profileAddForm.querySelector(".modal");
 // const cardURLInput = profileAddForm.querySelector(".modal__input_type_url");
 
@@ -81,6 +82,9 @@ profileAddButton.addEventListener("click", () => {
   profileAddModal.classList.add("modal_opened");
 });
 profileExitModal.addEventListener("click", () => {
+  closePopup();
+});
+profileExitAddModal.addEventListener("click", () => {
   closePopup();
 });
 
