@@ -53,6 +53,7 @@ const profileExitAddModal = document.querySelector("#close-button");
 function closePopup() {
   profileEditModal.classList.remove("modal_opened");
 }
+
 function openPopup() {
   profileAddModal.classList.add("modal_opened");
 }
