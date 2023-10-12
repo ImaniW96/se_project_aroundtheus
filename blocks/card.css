@@ -59,3 +59,6 @@
 .card__like-button_active {
   background-image: url(../images/active.svg);
 }
+.card__trash-icon:hover {
+  transition: 0.5s ease;
+}
