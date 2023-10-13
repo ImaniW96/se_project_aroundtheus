@@ -52,6 +52,18 @@
   top: 15px;
   right: 5px;
 }
+.card__preview-caption {
+  width: 291px;
+  height: 12px;
+  font-size: 12px;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 1);
+}
+.card__preview-image {
+  width: 433px;
+  height: 540px;
+}
+
 .card__like-button:hover {
   opacity: 0.5;
   transition: 0.3s ease;
