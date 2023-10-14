@@ -110,7 +110,7 @@ addCardCloseButton.addEventListener("click", () => {
   closePopup(profileAddModal);
 });
 previewImageCloseButton.addEventListener("click", () => {
-  closePopup(previewImageCloseButton);
+  closePopup(previewCardModal);
 });
 
 profileEditForm.addEventListener("submit", (e) => {
@@ -129,9 +129,10 @@ profileAddForm.addEventListener("submit", (e) => {
 });
 
 previewCardModal.addEventListener("click", () => {
-  e.preventDefault();
+  // e.preventDefault();
   const cardData = { link: cardURLInput.value };
   const cardElement = getCardElement(cardData);
+
   cardsList.prepend(cardElement);
   closePopup(previewCardModal);
 });
