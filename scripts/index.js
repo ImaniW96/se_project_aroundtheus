@@ -59,7 +59,7 @@ const cardURLInput = profileAddForm.querySelector(".modal__input_type_url");
 const previewImageCloseButton = document.querySelector(
   "#preview-card-image-close-button"
 );
-// const cardDeleteButton = document.querySelector("#card-delete-button");
+
 //Functions
 
 function closePopup(modal) {
@@ -135,9 +135,7 @@ profileAddForm.addEventListener("submit", (e) => {
   cardsList.prepend(cardElement);
   closePopup(profileAddModal);
 });
-//  cardDeleteButton.addEventListener("click", () => {
-//   cardTemplate.remove();
-// });
+
 // ititialization
 initialCards.forEach((cardData) => {
   const cardElement = getCardElement(cardData);
