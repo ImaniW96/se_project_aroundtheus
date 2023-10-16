@@ -19,6 +19,11 @@
   visibility: visible;
   opacity: 1;
 }
+.modal__input {
+  border: none;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+  height: 28px;
+}
 .modal__input_type_title {
   border: none;
   border-bottom: 1px solid rgba(0, 0, 0, 0.2);
