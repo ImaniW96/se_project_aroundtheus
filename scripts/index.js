@@ -66,13 +66,10 @@ function closePopup(modal) {
   modal.classList.remove("modal_opened");
 }
 
-function openPopup() {
-  profileAddModal.classList.add("modal_opened");
+function openPopup(openModal) {
+  openModal.classList.add("modal_opened");
 }
 
-function openPopup() {
-  previewCardModal.classList.add("modal_open");
-}
 function getCardElement(cardData) {
   const cardElement = cardTemplate.cloneNode(true);
   const cardImageEl = cardElement.querySelector(".card__image");
@@ -90,7 +87,7 @@ function getCardElement(cardData) {
   cardImageEl.setAttribute("alt", cardData.name);
   cardTitleEl.textContent = cardData.name;
 
-  cardElement.addEventListener("click", function () {
+  cardImageEl.addEventListener("click", function () {
     previewCardModal.classList.add("modal_opened");
     previewImageEl.setAttribute("src", cardData.link);
     previewImageEl.setAttribute("alt", cardData.name);
@@ -105,10 +102,10 @@ function getCardElement(cardData) {
 profileEditButton.addEventListener("click", () => {
   profileTitleInput.value = profileTitle.textContent;
   profileDescriptionInput.value = profileDescription.textContent;
-  profileEditModal.classList.add("modal_opened");
+  openPopup(profileEditModal);
 });
 profileAddButton.addEventListener("click", () => {
-  profileAddModal.classList.add("modal_opened");
+  openPopup(profileAddModal);
 });
 
 profileEditCloseButton.addEventListener("click", () => {
@@ -120,7 +117,9 @@ addCardCloseButton.addEventListener("click", () => {
 previewImageCloseButton.addEventListener("click", () => {
   closePopup(previewCardModal);
 });
-
+previewCardModal.addEventListener("click", () => {
+  openPopup(previewCardModal);
+});
 profileEditForm.addEventListener("submit", (e) => {
   e.preventDefault();
   profileTitle.textContent = profileTitleInput.value;
@@ -134,6 +133,7 @@ profileAddForm.addEventListener("submit", (e) => {
   const cardElement = getCardElement(cardData);
   cardsList.prepend(cardElement);
   closePopup(profileAddModal);
+  profileAddForm.reset();
 });
 
 // ititialization

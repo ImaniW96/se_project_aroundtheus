@@ -27,12 +27,16 @@
 .modal__input_type_title {
   border: none;
   border-bottom: 1px solid rgba(0, 0, 0, 0.2);
-  height: 28px;
+  height: 14px;
+  font-size: 14px;
+  font-weight: 400;
 }
 .modal__input_type_url {
   border: none;
   border-bottom: 1px solid rgba(0, 0, 0, 0.2);
-  height: 28px;
+  height: 14px;
+  font-size: 14px;
+  font-weight: 400;
 }
 .modal__container {
   background-color: #fff;
@@ -75,12 +79,12 @@
   border-radius: 2px;
 }
 .modal__button:hover {
-  opacity: 0.9;
+  opacity: 0.8;
   transition: 0.3s ease;
   cursor: pointer;
 }
 .modal__close:hover {
-  opacity: 0.9;
+  opacity: 0.8;
   transition: 0.3s ease;
   cursor: pointer;
 }

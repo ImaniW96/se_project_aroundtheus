@@ -11,6 +11,7 @@
   height: 282px;
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
+  cursor: pointer;
 }
 .card__title {
   max-width: 220px;
@@ -52,8 +53,6 @@
   top: 15px;
   right: 5px;
 }
- 
- 
 
 .card__like-button:hover {
   opacity: 0.5;
