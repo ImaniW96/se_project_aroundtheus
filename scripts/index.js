@@ -32,8 +32,8 @@ const profileEditModal = document.querySelector("#profile-edit-modal");
 const profileAddModal = document.querySelector("#profile-add-modal");
 const previewCardModal = document.querySelector("#preview-card-modal");
 const profileTitle = document.querySelector(".profile__title");
-const previewImageEl = document.querySelector(".card__preview-image");
-const previewCaptionEl = document.querySelector(".card__preview-caption");
+const previewImageEl = document.querySelector(".modal__image");
+const previewCaptionEl = document.querySelector(".modal__caption");
 
 const profileDescription = document.querySelector(".profile__description");
 const profileAddButton = document.querySelector(".profile__add-button");
