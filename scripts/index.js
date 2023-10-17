@@ -117,9 +117,7 @@ addCardCloseButton.addEventListener("click", () => {
 previewImageCloseModal.addEventListener("click", () => {
   closePopup(previewCardModal);
 });
-previewCardModal.addEventListener("click", () => {
-  openPopup(previewCardModal);
-});
+
 profileEditForm.addEventListener("submit", (e) => {
   e.preventDefault();
   profileTitle.textContent = profileTitleInput.value;
