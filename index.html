@@ -80,7 +80,10 @@
             placeholder="Description"
             class="modal__input"
             required
+            minlength="2"
+            maxlength="40"
           />
+          <span class="modal__error" id="owner-name-error"></span>
           <button class="modal__button" aria-label="savebutton" type="submit">
             Save
           </button>
@@ -155,5 +158,6 @@
       </li>
     </template>
     <script src="./scripts/index.js" defer></script>
+    <script src="./scripts/validation.js" defer></script>
   </body>
 </html>

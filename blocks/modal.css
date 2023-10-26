@@ -114,6 +114,15 @@
   font-weight: 400;
   color: rgba(255, 255, 255, 1);
 }
+.modal__input_type_error {
+  color: 255, 255, 255, 255;
+}
+.modal__error {
+  color: #ff0000;
+  font-size: 12px;
+  position: absolute;
+  font-weight: 400;
+}
 @media screen and (max-width: 630px) {
   .modal__container {
     width: 282px;
