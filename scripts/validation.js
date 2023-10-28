@@ -4,18 +4,35 @@ function showInputError(formEl, inputEl, { inputErrorClass, errorClass }) {
   errorMessageEl.textContent = inputEl.validationMessage;
   errorMessageEl.classList.add(errorClass);
 }
-function checkInputValidity(formEl, inputEl, option) {
+function checkInputValidity(formEl, inputEl, options) {
   if (!inputEl.validity.valid) {
-    showInputError(formEl, inputEl, options);
-  } else {
-    hideInputError(formEl, inputEl, options);
+    return showInputError(formEl, inputEl, options);
   }
+  hideInputError(formEl, inputEl, options);
+}
+
+function hasInvalidInput(inputList) {
+  return !inputList.every((inputEl) => inputEl.validity.valid);
+}
+
+function toggleButtonState(inputEl, submitButton, { inactiveButtonClass }) {
+  if (hasInvalidInput(inputEl)) {
+    submitButton.classList.add(inactiveButtonClass);
+    return (submitButton.disabled = true);
+  }
+  submitButton.classList.remove(inactiveButtonClass);
+  submitButton.disabled = false;
 }
 function SetEventListeners(formEl, options) {
   const { inputSelector } = options;
   const inputEls = [...formEl.querySelectorAll(inputSelector)];
+  const submitButton = [...formEl.querySelectorAll("modal__button")];
+
   inputEls.forEach((inputEl) => {
-    inputEl.addEventListener("input", (e) => {});
+    inputEl.addEventListener("input", (e) => {
+      checkInputValidity(formEl, inputEl, options);
+      toggleButtonState(inputEls, submitButton, options);
+    });
   });
 }
 
@@ -27,7 +44,6 @@ function enableValidation(options) {
     });
   });
 }
-// SetEventListeners(formEl, options);
 
 const config = {
   formSelector: ".modal__form",
