@@ -134,6 +134,22 @@ profileAddForm.addEventListener("submit", (e) => {
   profileAddForm.reset();
 });
 
+document.addEventListener("keydown", function (event) {
+  if (event.key === "Escape") {
+    const modalOpened = document.querySelector(".modal_opened");
+    closePopup(modalOpened);
+  }
+});
+
+const modals = [...document.querySelectorAll(".modal")];
+modals.forEach((modal) => {
+  modal.addEventListener("mousedown", (event) => {
+    if (event.target === event.currentTarget) {
+      closePopup(event.currentTarget);
+    }
+  });
+});
+
 // ititialization
 initialCards.forEach((cardData) => {
   const cardElement = getCardElement(cardData);

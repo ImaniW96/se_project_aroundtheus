@@ -65,26 +65,44 @@
         ></button>
         <form class="modal__form">
           <h1 class="modal__heading">Edit Profile</h1>
-          <input
-            type="text"
-            name="name"
-            id="profile-edit-title-input"
-            class="modal__input"
-            placeholder="Name"
-            required
-          />
-          <input
-            type="text"
-            name="description"
-            id="profile-description-input"
-            placeholder="Description"
-            class="modal__input"
-            required
-            minlength="2"
-            maxlength="40"
-          />
-          <span class="modal__error" id="owner-name-error"></span>
-          <button class="modal__button" aria-label="savebutton" type="submit">
+          <label class="modal__label">
+            <input
+              type="text"
+              name="name"
+              id="profile-edit-title-input"
+              class="modal__input"
+              placeholder="Name"
+              required
+              minlength="2"
+              maxlength="40"
+            />
+            <span
+              class="modal__error"
+              id="profile-edit-title-input-error"
+            ></span>
+          </label>
+          <label class="modal__label">
+            <input
+              type="text"
+              name="description"
+              id="profile-description-input"
+              placeholder="Description"
+              class="modal__input"
+              required
+              minlength="2"
+              maxlength="40"
+            />
+            <span
+              class="modal__error"
+              id="profile-description-input-error"
+            ></span>
+          </label>
+          <button
+            class="modal__button modal__button_disabled"
+            aria-label="savebutton"
+            type="submit"
+            disabled
+          >
             Save
           </button>
         </form>
@@ -101,24 +119,36 @@
         ></button>
         <form class="modal__form">
           <h1 class="modal__heading">New place</h1>
-          <input
-            type="text"
-            name="name"
-            id="add-title-input"
-            class="modal__input modal__input_type_title"
-            placeholder="Name"
-            required
-          />
-          <input
-            type="url"
-            name="url"
-            id="profile-add-description-input"
-            placeholder="image URL"
-            class="modal__input modal__input_type_url"
-            required
-          />
+          <label class="modal__label">
+            <input
+              type="text"
+              name="name"
+              id="add-title-input"
+              class="modal__input modal__input_type_title"
+              placeholder="Name"
+              required
+              minlength="2"
+              maxlength="40"
+            />
+            <span class="modal__error" id="add-title-input-error"></span>
+          </label>
+          <label class="modal__label">
+            <input
+              type="url"
+              name="url"
+              id="profile-add-description-input"
+              placeholder="image URL"
+              class="modal__input modal__input_type_url"
+              required
+            />
+
+            <span
+              class="modal__error"
+              id="profile-add-description-input-error"
+            ></span>
+          </label>
           <button
-            class="modal__button"
+            class="modal__button modal__button_disabled"
             aria-label="savebutton"
             type="submit"
             disabled
