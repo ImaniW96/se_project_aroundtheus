@@ -68,7 +68,7 @@ function closePopup(modal) {
 }
 
 function openPopup(modal) {
-  document.removeEventListener("keydown", closeModalByEscape);
+  document.addEventListener("keydown", closeModalByEscape);
   modal.classList.add("modal_opened");
 }
 function closeModalByEscape(event) {
@@ -143,12 +143,12 @@ profileAddForm.addEventListener("submit", (e) => {
   profileAddForm.reset();
 });
 
-// document.addEventListener("keydown", function (event) {
-//   if (event.key === "Escape") {
-//     const modalOpened = document.querySelector(".modal_opened");
-//     closePopup(modalOpened);
-//   }
-// });
+//  document.addEventListener("keydown", function (event) {
+// //   if (event.key === "Escape") {
+// //     const modalOpened = document.querySelector(".modal_opened");
+// //     closePopup(modalOpened);
+// //   }
+//  });
 
 const modals = [...document.querySelectorAll(".modal")];
 modals.forEach((modal) => {
