@@ -29,7 +29,7 @@ const initialCards = [
 
 const profileEditButton = document.querySelector("#profile-edit-button");
 const profileEditModal = document.querySelector("#profile-edit-modal");
-const profileAddModal = document.querySelector("#profile-add-modal");
+const addModal = document.querySelector("#profile-add-modal");
 const previewCardModal = document.querySelector("#preview-card-modal");
 const profileTitle = document.querySelector(".profile__title");
 const previewImageEl = document.querySelector(".modal__image");
@@ -44,7 +44,7 @@ const profileDescriptionInput = document.querySelector(
 );
 
 const profileEditForm = profileEditModal.querySelector(".modal__form");
-const profileAddForm = profileAddModal.querySelector(".modal__form");
+const profileAddForm = addModal.querySelector(".modal__form");
 const cardsList = document.querySelector(".cards__list");
 const cardList = document.querySelector(".cards__list");
 const cardTemplate =
@@ -114,14 +114,14 @@ profileEditButton.addEventListener("click", () => {
   openPopup(profileEditModal);
 });
 profileAddButton.addEventListener("click", () => {
-  openPopup(profileAddModal);
+  openPopup(addModal);
 });
 
 profileEditCloseButton.addEventListener("click", () => {
   closePopup(profileEditModal);
 });
 addCardCloseButton.addEventListener("click", () => {
-  closePopup(profileAddModal);
+  closePopup(addModal);
 });
 previewImageCloseModal.addEventListener("click", () => {
   closePopup(previewCardModal);
@@ -139,7 +139,7 @@ profileAddForm.addEventListener("submit", (e) => {
   const cardData = { name: addCardTitleInput.value, link: cardURLInput.value };
   const cardElement = getCardElement(cardData);
   cardsList.prepend(cardElement);
-  closePopup(profileAddModal);
+  closePopup(addModal);
   profileAddForm.reset();
 });
 
