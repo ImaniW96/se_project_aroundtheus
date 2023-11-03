@@ -159,5 +159,10 @@
   .modal__close {
     left: calc(85% + 5px);
     margin-bottom: 10px;
+    height: 26px;
+    width: 26px;
+  }
+  .modal__heading {
+    font-size: 18px;
   }
 }
