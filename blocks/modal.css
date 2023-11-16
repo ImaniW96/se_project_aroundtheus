@@ -157,12 +157,16 @@
     height: 27px;
   }
   .modal__close {
-    left: calc(85% + 5px);
+    left: 186px;
     margin-bottom: 10px;
     height: 26px;
     width: 26px;
   }
   .modal__heading {
     font-size: 18px;
+  }
+  .modal__image {
+    width: 220px;
+    height: 299px;
   }
 }

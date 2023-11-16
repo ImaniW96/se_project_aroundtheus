@@ -1,3 +1,4 @@
+import Card from "../scripts/card.js";
 const initialCards = [
   {
     name: "Yosemite Valley",
@@ -24,7 +25,12 @@ const initialCards = [
     link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/lago.jpg ",
   },
 ];
-
+const cardData = {
+  name: "Yosemite Valley",
+  link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/yosemite.jpg",
+};
+const card = new Card(cardData, "#cardTemplate");
+card.getView();
 //Elements
 
 const profileEditButton = document.querySelector("#profile-edit-button");
