@@ -5,11 +5,19 @@ export default class Card {
     this._cardSelector = cardSelector;
   }
   _setEventListeners() {
-    this._cardElement
-      .querySelector(".card__like-button")
-      .addEventListener("click", () => {
-        this._handleLikeIcon();
-      });
+    likeButton.addEventListener("click", () => {
+      likeButton.classList.toggle("card__like-button_active");
+    });
+    cardDeleteButton = cardElement.querySelector(".card__trash-icon");
+    cardDeleteButton.addEventListener("click", () => {
+      cardElement.remove();
+    });
+    cardImageEl.addEventListener("click", function () {
+      openPopup(previewCardModal);
+      previewImageEl.setAttribute("src", cardData.link);
+      previewImageEl.setAttribute("alt", cardData.name);
+      previewCaptionEl.textContent = cardData.name;
+    });
   }
   _handleDeleteCard() {
     this._cardElement.remove();
@@ -21,11 +29,16 @@ export default class Card {
       .classList.toggle("card__like-button-active");
   }
 
-  getView() {
+  getTemplate() {
     this._cardElement = document
       .querySelector(this._cardSelector)
       .content.querySelector(".card")
       .cloneNode(true);
+    this._setEventListeners();
+  }
+  getView() {
+    this._element = this._getTemplate();
+    this._cardElement.querySelector(".card__like-button");
     this._setEventListeners();
   }
 }
