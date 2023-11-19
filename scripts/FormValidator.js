@@ -7,13 +7,13 @@ class FormValidator {
     this._errorClass = settings._errorClass;
     this._form = formElement;
   }
-}
- showInputError(formEl, inputEl, { inputErrorClass, errorClass }) {
+  showInputError(formEl, inputEl, { inputErrorClass, errorClass }) {
     const errorMessageEl = formEl.querySelector(`#${inputEl.id}-error`);
     inputEl.classList.add(inputErrorClass);
     errorMessageEl.textContent = inputEl.validationMessage;
     errorMessageEl.classList.add(errorClass);
   }
+}
 // _toggleButttonState(){
 // }
 // _hasInputInvalid(){}

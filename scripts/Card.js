@@ -29,10 +29,10 @@ export default class Card {
       .classList.toggle("card__like-button-active");
   }
 
-  getTemplate() {
+  _getTemplate() {
     this._cardElement = document
-      .querySelector(this._cardSelector)
-      .content.querySelector(".card")
+      .querySelector(this._cardTemplate)
+      .content.querySelector("#card-template")
       .cloneNode(true);
     this._setEventListeners();
   }
