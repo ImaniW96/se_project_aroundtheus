@@ -14,11 +14,24 @@ class FormValidator {
     errorMessageEl.classList.add(errorClass);
   }
 }
-// _toggleButttonState(){
+// _toggleButttonState();
+// inputEl, submitButton, { inactiveButtonClass };
+// {
+if (hasInvalidInput(inputEl)) {
+  submitButton.classList.add(inactiveButtonClass);
+  submitButton.disabled = true;
+}
+// _hasInputInvalid( inputList){
 // }
-// _hasInputInvalid(){}
+
 // _checkInputValidity(){
-//      _setEventListeners(){}
+// (formEl, inputEl, options); {
+//     if (!inputEl.validity.valid) {
+//       return showInputError(formEl, inputEl, options);
+//     }
+//     hideInputError(formEl, inputEl, options);
+//   }
+//      _setEventListeners();{}
 // }
 function enableValidation(options) {
   const formEls = [...document.querySelectorAll(options.formSelector)];
