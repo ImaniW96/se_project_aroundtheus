@@ -13,14 +13,22 @@ class FormValidator {
     errorMessageEl.textContent = inputEl.validationMessage;
     errorMessageEl.classList.add(errorClass);
   }
+  _setEventListeners() {}
+  enableValidation() {
+    this._form.addEventListener("submit", (e) => {
+      e.preventDefault();
+    });
+    this._setEventListeners(formEl, options);
+  }
 }
+
 // _toggleButttonState();
 // inputEl, submitButton, { inactiveButtonClass };
 // {
-if (hasInvalidInput(inputEl)) {
-  submitButton.classList.add(inactiveButtonClass);
-  submitButton.disabled = true;
-}
+// if (hasInvalidInput(inputEl)) {
+//   submitButton.classList.add(inactiveButtonClass);
+//   submitButton.disabled = true;
+// }
 // _hasInputInvalid( inputList){
 // }
 
@@ -33,13 +41,4 @@ if (hasInvalidInput(inputEl)) {
 //   }
 //      _setEventListeners();{}
 // }
-function enableValidation(options) {
-  const formEls = [...document.querySelectorAll(options.formSelector)];
-  formEls.forEach((formEl) => {
-    formEl.addEventListener("submit", (e) => {
-      e.preventDefault();
-    });
-    setEventListeners(formEl, options);
-  });
-}
 export default FormValidator;

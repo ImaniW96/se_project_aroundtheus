@@ -59,6 +59,8 @@ const cardTemplate =
 const profileEditCloseButton = document.querySelector(
   "#edit-profile-close-button"
 );
+const editFormValidator = new FormValidator({}, profileEditForm);
+editFormValidator.editFormValidation();
 
 const addCardCloseButton = document.querySelector("#add-card-close-button");
 const cardTitleInput = addForm.querySelector(".modal");
