@@ -4,6 +4,7 @@ class FormValidator {
     this._submitButtonSelector = settings._submitButtonSelector;
     this._inactiveButtonClass = settings._inactiveButtonClass;
     this._inputErrorClass = settings._inputErrorClass;
+    this._submitButton = this._form.querySelector(this._submitButtonSelector);
     this._errorClass = settings._errorClass;
     this._form = formElement;
   }
@@ -13,7 +14,18 @@ class FormValidator {
     errorMessageEl.textContent = inputEl.validationMessage;
     errorMessageEl.classList.add(errorClass);
   }
-  _setEventListeners() {}
+  _setEventListeners() {
+    const { inputSelector, submitButtonSelector } = options;
+    const inputEls = [...formEl.querySelectorAll(inputSelector)];
+    const submitButton = formEl.querySelector(submitButtonSelector);
+
+    inputEls.forEach((inputEl) => {
+      inputEl.addEventListener("input", (e) => {
+        checkInputValidity(formEl, inputEl, options);
+        toggleButtonState(inputEls, submitButton, options);
+      });
+    });
+  }
   enableValidation() {
     this._form.addEventListener("submit", (e) => {
       e.preventDefault();
@@ -35,6 +47,7 @@ class FormValidator {
     submitButton.classList.remove(inactiveButtonClass);
     submitButton.disabled = false;
   }
+
   // enableValidation(options) {
   //   const formEl = [...document.querySelectorAll(options.formSelector)];
   //   formEl.forEach(() => {

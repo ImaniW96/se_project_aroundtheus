@@ -59,7 +59,7 @@ const cardTemplate =
 const profileEditCloseButton = document.querySelector(
   "#edit-profile-close-button"
 );
-const editFormValidator = new FormValidator({}, profileEditForm);
+const editFormValidator = new FormValidator({ submitButton }, profileEditForm);
 editFormValidator.enableValidation();
 
 const addCardCloseButton = document.querySelector("#add-card-close-button");
