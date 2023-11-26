@@ -60,7 +60,7 @@ const profileEditCloseButton = document.querySelector(
   "#edit-profile-close-button"
 );
 const editFormValidator = new FormValidator({}, profileEditForm);
-editFormValidator.editFormValidation();
+editFormValidator.enableValidation();
 
 const addCardCloseButton = document.querySelector("#add-card-close-button");
 const cardTitleInput = addForm.querySelector(".modal");
@@ -165,7 +165,9 @@ modals.forEach((modal) => {
 initialCards.forEach((cardData) => {
   // const cardElement = getCardElement(cardData);
   // cardsList.prepend(cardElement);
-  const card = new Card(card);
-  const cardElement = getView;
+  const card = new Card(cardData, "#card-template");
+
+  const cardElement = card.getView();
+  console.log(cardElement);
   cardsList.prepend(cardElement);
 });

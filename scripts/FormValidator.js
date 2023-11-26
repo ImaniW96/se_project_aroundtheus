@@ -18,27 +18,45 @@ class FormValidator {
     this._form.addEventListener("submit", (e) => {
       e.preventDefault();
     });
-    this._setEventListeners(formEl, options);
+    this._setEventListeners();
   }
+  checkInputValidity(formEl, inputEl, options) {
+    if (!inputEl.validity.valid) {
+      return showInputError(formEl, inputEl, options);
+    }
+    this._hideInputError(formEl, inputEl, options);
+  }
+  toggleButtonState(inputEl, submitButton, { inactiveButtonClass }) {
+    if (hasInvalidInput(inputEl)) {
+      submitButton.classList.add(inactiveButtonClass);
+      submitButton.disabled = true;
+      return;
+    }
+    submitButton.classList.remove(inactiveButtonClass);
+    submitButton.disabled = false;
+  }
+  // enableValidation(options) {
+  //   const formEl = [...document.querySelectorAll(options.formSelector)];
+  //   formEl.forEach(() => {
+  //     formEl.addEventListener("submit", (e) => {
+  //       e.preventDefault();
+  //     });
+  //     setEventListeners(formEl, options);
+  //   });
+  // }
 }
 
-// _toggleButttonState();
-// inputEl, submitButton, { inactiveButtonClass };
-// {
-// if (hasInvalidInput(inputEl)) {
-//   submitButton.classList.add(inactiveButtonClass);
-//   submitButton.disabled = true;
-// }
-// _hasInputInvalid( inputList){
+// this._hasInputInvalid( inputList){
 // }
 
-// _checkInputValidity(){
+// this._checkInputValidity(){
 // (formEl, inputEl, options); {
-//     if (!inputEl.validity.valid) {
-//       return showInputError(formEl, inputEl, options);
+//  if (!inputEl.validity.valid) {
+// return showInputError(formEl, inputEl, options);
 //     }
-//     hideInputError(formEl, inputEl, options);
+//   this._hideInputError(formEl, inputEl, options);
 //   }
-//      _setEventListeners();{}
+//  this._setEventListeners();{}
 // }
+
 export default FormValidator;

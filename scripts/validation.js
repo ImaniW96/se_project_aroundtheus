@@ -1,4 +1,4 @@
-import FormValidator from "./FormValidator";
+import FormValidator from "./FormValidator.js";
 
 function showInputError(formEl, inputEl, { inputErrorClass, errorClass }) {
   const errorMessageEl = formEl.querySelector(`#${inputEl.id}-error`);
