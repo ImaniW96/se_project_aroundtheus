@@ -59,11 +59,6 @@ const cardTemplate =
 const profileEditCloseButton = document.querySelector(
   "#edit-profile-close-button"
 );
-const editFormValidator = new FormValidator(
-  { inputErrorClass, submitButtonSelector, formSelector },
-  profileEditForm
-);
-editFormValidator.enableValidation();
 
 const addCardCloseButton = document.querySelector("#add-card-close-button");
 const cardTitleInput = addForm.querySelector(".modal");
@@ -72,6 +67,18 @@ const previewImageCloseModal = document.querySelector(
   "#preview-card-image-close-button"
 );
 
+//Objects
+const config = {
+  formSelector: ".modal__form",
+  inputSelector: ".modal__input",
+  submitButtonSelector: ".modal__button",
+  inactiveButtonClass: "modal__button_disabled",
+  inputErrorClass: "modal__input_type_error",
+  errorClass: "modal__error_visable",
+};
+
+const editFormValidator = new FormValidator(config, profileEditForm);
+const addFormValidator = new FormValidator(config, addForm);
 //Functions
 
 function closePopup(modal) {
@@ -90,6 +97,12 @@ function closeModalByEscape(event) {
       closePopup(modalOpened);
     }
   }
+}
+function handleImageClick(cardData) {
+  openPopup(previewCardModal);
+  previewImageEl.setAttribute("src", cardData.link);
+  previewImageEl.setAttribute("alt", cardData.name);
+  previewCaptionEl.textContent = cardData.name;
 }
 // function getCardElement(cardData) {
 //   const cardElement = cardTemplate.cloneNode(true);
@@ -168,9 +181,12 @@ modals.forEach((modal) => {
 initialCards.forEach((cardData) => {
   // const cardElement = getCardElement(cardData);
   // cardsList.prepend(cardElement);
-  const card = new Card(cardData, "#card-template");
+  const card = new Card(cardData, "#card-template", handleImageClick);
 
   const cardElement = card.getView();
   console.log(cardElement);
   cardsList.prepend(cardElement);
 });
+
+editFormValidator.enableValidation();
+addFormValidator.enableValidation();

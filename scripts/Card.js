@@ -1,8 +1,10 @@
 export default class Card {
-  constructor({ name, link }, cardSelector) {
-    this._name = name;
-    this._link = link;
+  constructor(cardData, cardSelector, handleImageClick) {
+    this._cardData = cardData;
+    this._name = cardData.name;
+    this._link = cardData.link;
     this._cardSelector = cardSelector;
+    this._handleImageClick = handleImageClick;
   }
   _setEventListeners() {
     this._likeButton.addEventListener("click", () => {
@@ -13,10 +15,7 @@ export default class Card {
       this._cardElement.remove();
     });
     this._cardImageEl.addEventListener("click", function () {
-      openPopup(previewCardModal);
-      previewImageEl.setAttribute("src", cardData.link);
-      previewImageEl.setAttribute("alt", cardData.name);
-      previewCaptionEl.textContent = cardData.name;
+      this._handleImageClick(this._cardData);
     });
   }
   _handleDeleteCard() {
