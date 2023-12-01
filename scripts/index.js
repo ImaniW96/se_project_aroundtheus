@@ -162,8 +162,8 @@ profileEditForm.addEventListener("submit", (e) => {
 addForm.addEventListener("submit", (e) => {
   e.preventDefault();
   const cardData = { name: addCardTitleInput.value, link: cardURLInput.value };
-  const cardElement = new Card(cardData);
-  cardsList.prepend(cardElement);
+  const card = new Card(cardData);
+  cardsList.prepend(card.getView());
   closePopup(addModal);
   addForm.reset();
 });

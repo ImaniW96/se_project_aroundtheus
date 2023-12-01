@@ -3,6 +3,7 @@ export default class Card {
     this._cardData = cardData;
     this._name = cardData.name;
     this._link = cardData.link;
+    // this._gettemplate = cardTemplate;
     this._cardSelector = cardSelector;
     this._handleImageClick = handleImageClick;
   }
@@ -15,13 +16,11 @@ export default class Card {
     this._cardDeleteButton.addEventListener("click", () => {
       this._cardElement.remove();
     });
-    this._cardImageEl.addEventListener("click", function () {
+    this._cardImageEl.addEventListener("click", () => {
       this._handleImageClick(this._cardData);
     });
   }
-  _handleImageClick() {
-    this._cardImageEl.addEventListener("click", cardData._handleImageClick);
-  }
+
   _handleDeleteCard() {
     this._cardElement.remove();
     this._cardElement = null;
