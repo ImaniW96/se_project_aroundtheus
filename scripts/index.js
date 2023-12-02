@@ -30,8 +30,8 @@ const cardData = {
   name: "Yosemite Valley",
   link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/yosemite.jpg",
 };
-const card = new Card(cardData, "#card-template");
-card.getView(cardData);
+// const card = new Card(cardData, "#card-template");
+// card.getView(cardData);
 //Elements
 
 const profileEditButton = document.querySelector("#profile-edit-button");
@@ -162,7 +162,7 @@ profileEditForm.addEventListener("submit", (e) => {
 addForm.addEventListener("submit", (e) => {
   e.preventDefault();
   const cardData = { name: addCardTitleInput.value, link: cardURLInput.value };
-  const card = new Card(cardData);
+  const card = new Card(cardData, "#card-template", handleImageClick);
   cardsList.prepend(card.getView());
   closePopup(addModal);
   addForm.reset();
@@ -179,8 +179,6 @@ modals.forEach((modal) => {
 
 // ititialization
 initialCards.forEach((cardData) => {
-  // const cardElement = getCardElement(cardData);
-  // cardsList.prepend(cardElement);
   const card = new Card(cardData, "#card-template", handleImageClick);
 
   const cardElement = card.getView();
