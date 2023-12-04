@@ -30,8 +30,6 @@ const cardData = {
   name: "Yosemite Valley",
   link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/yosemite.jpg",
 };
-// const card = new Card(cardData, "#card-template");
-// card.getView(cardData);
 //Elements
 
 const profileEditButton = document.querySelector("#profile-edit-button");
@@ -104,32 +102,6 @@ function handleImageClick(cardData) {
   previewImageEl.setAttribute("alt", cardData.name);
   previewCaptionEl.textContent = cardData.name;
 }
-// function getCardElement(cardData) {
-//   const cardElement = cardTemplate.cloneNode(true);
-//   const cardImageEl = cardElement.querySelector(".card__image");
-//   const cardTitleEl = cardElement.querySelector(".card__title");
-//   const likeButton = cardElement.querySelector(".card__like-button");
-//   likeButton.addEventListener("click", () => {
-//     likeButton.classList.toggle("card__like-button_active");
-//   });
-//   const cardDeleteButton = cardElement.querySelector(".card__trash-icon");
-//   cardDeleteButton.addEventListener("click", () => {
-//     cardElement.remove();
-//   });
-
-//   cardImageEl.setAttribute("src", cardData.link);
-//   cardImageEl.setAttribute("alt", cardData.name);
-//   cardTitleEl.textContent = cardData.name;
-
-//   cardImageEl.addEventListener("click", function () {
-//     openPopup(previewCardModal);
-//     previewImageEl.setAttribute("src", cardData.link);
-//     previewImageEl.setAttribute("alt", cardData.name);
-//     previewCaptionEl.textContent = cardData.name;
-//   });
-
-//   return cardElement;
-// }
 
 // EventListener
 
@@ -138,7 +110,7 @@ profileEditButton.addEventListener("click", () => {
   profileDescriptionInput.value = profileDescription.textContent;
   openPopup(profileEditModal);
 });
-profileAddButton.addEventListener("click", () => {
+profileAddButton.addEventListener("mousedown", () => {
   openPopup(addModal);
 });
 
@@ -165,7 +137,7 @@ addForm.addEventListener("submit", (e) => {
   const card = new Card(cardData, "#card-template", handleImageClick);
   cardsList.prepend(card.getView());
   closePopup(addModal);
-  addForm.reset();
+  addForm.reset(".modal__button_disabled");
 });
 
 const modals = [...document.querySelectorAll(".modal")];

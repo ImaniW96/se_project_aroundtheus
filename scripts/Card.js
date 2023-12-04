@@ -25,9 +25,9 @@ export default class Card {
     this._cardElement = null;
   }
   _handleLikeIcon() {
-    this._cardElement
-      .querySelector(".card__like-button")
-      .classList.toggle("card__like-button-active");
+    this._cardElement(".card__like-button").classList.toggle(
+      "card__like-button-active"
+    );
   }
 
   _getTemplate() {
