@@ -139,7 +139,7 @@ addForm.addEventListener("submit", (e) => {
   cardsList.prepend(cardElement);
 
   closePopup(addModal);
-  addForm.reset(".modal__button_disabled");
+  addForm.reset();
   addFormValidator.resetValidation();
 });
 
