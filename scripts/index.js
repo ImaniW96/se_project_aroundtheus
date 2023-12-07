@@ -1,5 +1,5 @@
-import Card from "./Card.js";
-import FormValidator from "./FormValidator.js";
+import Card from "../components/Card.js";
+import FormValidator from "../components/FormValidator.js";
 const initialCards = [
   {
     name: "Yosemite Valley",
@@ -108,6 +108,7 @@ function handleImageClick(cardData) {
 profileEditButton.addEventListener("click", () => {
   profileTitleInput.value = profileTitle.textContent;
   profileDescriptionInput.value = profileDescription.textContent;
+  editFormValidator.resetValidation();
   openPopup(profileEditModal);
 });
 profileAddButton.addEventListener("mousedown", () => {
@@ -134,10 +135,12 @@ profileEditForm.addEventListener("submit", (e) => {
 addForm.addEventListener("submit", (e) => {
   e.preventDefault();
   const cardData = { name: addCardTitleInput.value, link: cardURLInput.value };
-  const card = new Card(cardData, "#card-template", handleImageClick);
-  cardsList.prepend(card.getView());
+  const cardElement = createCard(cardData);
+  cardsList.prepend(cardElement);
+
   closePopup(addModal);
   addForm.reset(".modal__button_disabled");
+  addFormValidator.resetValidation();
 });
 
 const modals = [...document.querySelectorAll(".modal")];
@@ -151,12 +154,15 @@ modals.forEach((modal) => {
 
 // ititialization
 initialCards.forEach((cardData) => {
-  const card = new Card(cardData, "#card-template", handleImageClick);
-
-  const cardElement = card.getView();
-  console.log(cardElement);
+  const cardElement = createCard(cardData);
   cardsList.prepend(cardElement);
 });
+
+function createCard(cardData) {
+  const card = new Card(cardData, "#card-template", handleImageClick);
+  const cardElement = card.getView();
+  return cardElement;
+}
 
 editFormValidator.enableValidation();
 addFormValidator.enableValidation();

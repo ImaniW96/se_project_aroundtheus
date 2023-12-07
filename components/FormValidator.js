@@ -48,12 +48,17 @@ class FormValidator {
   _hideInputError(inputEl) {
     const errorMessageEl = this._form.querySelector(`#${inputEl.id}-error`);
     inputEl.classList.remove(this._settings.inputErrorClass);
-    errorMessageEl.textContent = inputEl.validationMessage;
-    errorMessageEl.classList.add(this._settings.errorClass);
+    errorMessageEl.textContent = "";
+    errorMessageEl.classList.remove(this._settings.errorClass);
   }
   _hasInvalidInput() {
     return !this._inputEls.every((inputEl) => inputEl.validity.valid);
   }
+  resetValidation() {
+    this._toggleButtonState();
+    this._inputEls.forEach((inputEl) => {
+      this._hideInputError(inputEl);
+    });
+  }
 }
-
 export default FormValidator;
