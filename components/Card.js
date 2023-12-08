@@ -9,7 +9,6 @@ export default class Card {
 
   _setEventListeners() {
     this._likeButton.addEventListener("click", () => {
-      this._likeButton.classList.toggle("card__like-button_active");
       this._handleLikeIcon();
     });
 
@@ -26,7 +25,7 @@ export default class Card {
     this._cardElement = null;
   }
   _handleLikeIcon() {
-    this._likeButton.classList.toggle("card__like-button-active");
+    this._likeButton.classList.toggle("card__like-button_active");
   }
 
   _getTemplate() {

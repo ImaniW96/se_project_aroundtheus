@@ -111,7 +111,7 @@ profileEditButton.addEventListener("click", () => {
   editFormValidator.resetValidation();
   openPopup(profileEditModal);
 });
-profileAddButton.addEventListener("mousedown", () => {
+profileAddButton.addEventListener("click", () => {
   openPopup(addModal);
 });
 
