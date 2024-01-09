@@ -1,5 +1,7 @@
 import Card from "../components/Card.js";
 import FormValidator from "../components/FormValidator.js";
+import Section from "../components/Section.js";
+import "../pages/index.css";
 const initialCards = [
   {
     name: "Yosemite Valley",
@@ -35,6 +37,9 @@ const section = new Section(
   ".card__list"
 );
 section.renderItems();
+const newCardPopup = new PopupwithForm("#", () => {});
+newCardPopup.open();
+newCardPopup.close();
 //Elements
 
 const profileEditButton = document.querySelector("#profile-edit-button");
