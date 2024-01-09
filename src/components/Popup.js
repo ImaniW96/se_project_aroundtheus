@@ -5,4 +5,5 @@ class Popup {
   open() {}
   close() {}
   _handleEscapeClose() {}
+  setEventListeners() {}
 }
