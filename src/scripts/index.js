@@ -33,7 +33,13 @@ const cardData = {
   link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/yosemite.jpg",
 };
 const section = new Section(
-  { items: initialCards, renderer: () => {} },
+  {
+    items: initialCards,
+    renderer: (cardData) => {
+      const cardElement = createCard(cardData);
+      section.addItem(cardElement);
+    },
+  },
   ".card__list"
 );
 section.renderItems();
