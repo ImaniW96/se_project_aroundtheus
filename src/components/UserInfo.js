@@ -1,5 +1,8 @@
 constructor({profileName,}){
-    getUserInfo();
+    getUserInfo(
+        profileTitle.textContent = profileTitleInput.value;
+  profileDescription.textContent = profileDescriptionInput.value;
+    );
     setUserInfo();
     export const closeModal =() => {
         modal.classList.remove("modal_open");
