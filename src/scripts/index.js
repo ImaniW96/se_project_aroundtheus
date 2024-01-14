@@ -40,10 +40,10 @@ const section = new Section(
       section.addItem(cardElement);
     },
   },
-  ".card__list"
+  ".cards__list"
 );
 section.renderItems();
-const newCardPopup = new PopupwithForm("#", () => {});
+const newCardPopup = new PopupwithForm("#profile-add-modal", () => {});
 newCardPopup.open();
 newCardPopup.close();
 //Elements

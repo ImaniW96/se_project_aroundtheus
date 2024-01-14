@@ -3,7 +3,7 @@ class Popup {
     this._popupElement = document.querySelector(popupSelector);
   }
   open() {
-    function openPopup(modal) {
+    function openPopup() {
       document.addEventListener("keydown", closeModalByEscape);
       openPopup();
     }
