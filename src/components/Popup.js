@@ -3,21 +3,20 @@ class Popup {
     this._popupElement = document.querySelector(popupSelector);
   }
   open() {
-    function openPopup() {
-      document.addEventListener("keydown", closeModalByEscape);
-      openPopup();
+    this._popupElement.classList.add("modal_opened");
+  }
+  close() {
+    this._popupElement.classList.remove("modal_opened");
+  }
+  _handleEscapeClose(close, evt) {
+    const modalOpen = document.querySelector("modal_opened");
+    if (evt.key === "Escape") {
+      close(modalOpen);
     }
   }
-  close() {}
-  _handleEscapeClose() {
-    function closeModalByEscape(event) {
-      if (event.key === "Escape") {
-        const modalOpened = document.querySelector(".modal_opened");
-        if (modalOpened) {
-          closePopup(modalOpened);
-        }
-      }
-    }
+  setEventListeners() {
+    this._popupElement.addEventListeners("click", (evt) => {
+      evt.preventDefault();
+    });
   }
-  setEventListeners() {}
 }
