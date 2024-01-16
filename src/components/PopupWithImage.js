@@ -4,9 +4,13 @@
 //     // set the caption's textContent
 //     super.open();
 //   }
-
-function handlePopupWithImage(imageSector, title, link, textContent) {
-  const imageSeletor = imageSelector;
-  const newImagePopup = ImagePopup(imageSector);
-  this._cardImage = this._modal.querySelector("modal__image");
+export default class PopupWithImage {
+  constructor(imageSelector, caption, link) {
+    super.open()
+    this._imageSelector = previewImageEl;
+    this._caption = previewCaptionEl;
+    this._link = cardData;
+    const newImagePopup = ImagePopup(imageSelector);
+    this._cardImage = this._modal.querySelector("modal__image");
+  }
 }
