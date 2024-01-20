@@ -1,6 +1,11 @@
 export default class PopupWithImage {
-  constructor(imageSelector, caption, link, name) {
-  
+  constructor(name, link) {}
+  open(cardData) {
+    this._cardImage.addEventListener("click", () => {
+      this._handleImageClick({ name: this._name, link: this._link });
+    });
+
+    super.open(cardData);
   }
 }
 // data should be an object containing the name and link

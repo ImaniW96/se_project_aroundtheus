@@ -46,7 +46,9 @@ const section = new Section(
 );
 section.renderItems();
 const newCardPopup = new PopupWithForm("#profile-add-modal", () => {});
-const imageCardPopup = new PopupWithImage("#preview-card-modal", () => {});
+const imageCardPopup = new PopupWithImage("#preview-card-modal", () => {
+  open(cardData);
+});
 
 //Elements
 
