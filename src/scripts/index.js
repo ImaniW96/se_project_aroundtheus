@@ -46,9 +46,7 @@ const section = new Section(
 );
 section.renderItems();
 const newCardPopup = new PopupWithForm("#profile-add-modal", () => {});
-const imageCardPopup = new PopupWithImage("#preview-card-modal", () => {
-  open(cardData);
-});
+const imageCardPopup = new PopupWithImage("#preview-card-modal");
 
 //Elements
 
@@ -117,10 +115,11 @@ const addFormValidator = new FormValidator(config, addForm);
 //   }
 // }
 function handleImageClick(cardData) {
-  openPopup(previewCardModal);
-  previewImageEl.setAttribute("src", cardData.link);
-  previewImageEl.setAttribute("alt", cardData.name);
-  previewCaptionEl.textContent = cardData.name;
+  imageCardPopup.open(cardData);
+  // openPopup(previewCardModal);
+  // previewImageEl.setAttribute("src", cardData.link);
+  // previewImageEl.setAttribute("alt", cardData.name);
+  // previewCaptionEl.textContent = cardData.name;
 }
 
 // EventListener

@@ -1,10 +1,15 @@
-export default class PopupWithImage {
-  constructor(name, link) {}
-  open(cardData) {
-    this._cardImage.addEventListener("click", () => {
-      this._handleImageClick({ name: this._name, link: this._link });
-    });
+import Popup from "./Popup";
 
+export default class PopupWithImage extends Popup {
+  constructor(popupSelector) {
+    super({ popupSelector });
+  }
+  open(cardData) {
+    const popupImage = this._popupElement.querySelector(".modal__image");
+    popupImage.src = cardData.link;
+    popupImage.alt = cardData.name;
+    const popupCaption = this._popupElement.querySelector(".modal__caption");
+    popupCaption.textContent = cardData.name;
     super.open(cardData);
   }
 }
