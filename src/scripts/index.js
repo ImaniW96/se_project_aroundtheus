@@ -4,6 +4,7 @@ import Section from "../components/Section.js";
 import "../pages/index.css";
 import PopupWithForm from "../components/PopupWithForm.js";
 import PopupWithImage from "../components/PopupWithImage.js";
+import Userinfo from "../components/UserInfo.js";
 const initialCards = [
   {
     name: "Yosemite Valley",
@@ -46,7 +47,10 @@ const section = new Section(
 );
 section.renderItems();
 const newCardPopup = new PopupWithForm("#profile-add-modal", () => {});
+newCardPopup.setEventListeners();
+
 const imageCardPopup = new PopupWithImage("#preview-card-modal");
+const Usersinfo = new Usersinfo();
 
 //Elements
 
@@ -116,10 +120,7 @@ const addFormValidator = new FormValidator(config, addForm);
 // }
 function handleImageClick(cardData) {
   imageCardPopup.open(cardData);
-  // openPopup(previewCardModal);
-  // previewImageEl.setAttribute("src", cardData.link);
-  // previewImageEl.setAttribute("alt", cardData.name);
-  // previewCaptionEl.textContent = cardData.name;
+ 
 }
 
 // EventListener

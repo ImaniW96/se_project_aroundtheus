@@ -11,4 +11,11 @@ export default class Userinfo {
     this._profiletitleElement.textContent = title;
     this._profileDescriptionElement.textContent = description;
   }
+  setEventListeners() {
+    this._popupForm.addEventListeners("submit", (evt) => {
+      evt.preventDefault();
+      this._handleFormSubmit(this._getInputValues());
+    });
+    super.setEventListeners();
+  }
 }
