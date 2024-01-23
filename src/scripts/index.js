@@ -120,7 +120,6 @@ const addFormValidator = new FormValidator(config, addForm);
 // }
 function handleImageClick(cardData) {
   imageCardPopup.open(cardData);
- 
 }
 
 // EventListener
@@ -156,6 +155,7 @@ addForm.addEventListener("submit", (e) => {
   e.preventDefault();
   const cardData = { name: addCardTitleInput.value, link: cardURLInput.value };
   const cardElement = createCard(cardData);
+
   cardsList.prepend(cardElement);
 
   closePopup(addModal);
