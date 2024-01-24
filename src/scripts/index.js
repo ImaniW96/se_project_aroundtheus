@@ -4,7 +4,7 @@ import Section from "../components/Section.js";
 import "../pages/index.css";
 import PopupWithForm from "../components/PopupWithForm.js";
 import PopupWithImage from "../components/PopupWithImage.js";
-import Userinfo from "../components/UserInfo.js";
+import UserInfo from "../components/UserInfo.js";
 const initialCards = [
   {
     name: "Yosemite Valley",
@@ -59,10 +59,21 @@ const newCardPopup = new PopupWithForm("#profile-add-modal", (inputValues) => {
   addForm.reset();
   addFormValidator.resetValidation();
 });
+
+const editProfilePopup = new PopupWithForm("#profile-edit-modal", () => {
+  e.preventDefault();
+  //   const cardData = { name: addCardTitleInput.value, description: cardURLInput.value };
+  profileTitle.textContent = profileTitleInput.value;
+  profileDescription.textContent = profileDescriptionInput.value;
+  editForm.reset();
+  editFormValidator.resetValidation();
+  UserInfo.setUserInfo();
+  editProfilePopup.close();
+});
 newCardPopup.setEventListeners();
 
 const imageCardPopup = new PopupWithImage("#preview-card-modal");
-const Usersinfo = new Usersinfo("#");
+const userInfo = new UserInfo(".profile__title", "profile__description");
 
 //Elements
 
@@ -140,7 +151,7 @@ profileEditButton.addEventListener("click", () => {
   profileTitleInput.value = profileTitle.textContent;
   profileDescriptionInput.value = profileDescription.textContent;
   editFormValidator.resetValidation();
-  newCardPopup.open();
+  editProfilePopup.open();
 });
 profileAddButton.addEventListener("click", () => {
   newCardPopup.open();
@@ -156,13 +167,13 @@ previewImageCloseModal.addEventListener("click", () => {
   imageCardPopup.close();
 });
 
-profileEditForm.addEventListener("submit", (e) => {
-  // e.preventDefault();
-  // profileTitle.textContent = profileTitleInput.value;
-  // profileDescription.textContent = profileDescriptionInput.value;
-  // closePopup(profileEditModal);
-  Usersinfo.setUserInfo();
-});
+// profileEditForm.addEventListener("submit", (e) => {
+//   // e.preventDefault();
+//   // profileTitle.textContent = profileTitleInput.value;
+//   // profileDescription.textContent = profileDescriptionInput.value;
+//   // closePopup(profileEditModal);
+//   Usersinfo.setUserInfo();
+// });
 
 // addForm.addEventListener("submit", (e) => {
 //   e.preventDefault();

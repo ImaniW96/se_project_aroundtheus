@@ -1,21 +1,17 @@
-export default class Userinfo {
-  constructor(profileTitle, profileDesription) {
-    this._name = profileTitle;
-    this._description = profileDesription;
+export default class UserInfo {
+  constructor(nameSelector, aboutSelector) {
+    this._name = document.querySelector(nameSelector);
+    this._description = document.querySelector(aboutSelector);
   }
   getUserInfo() {
-    return this._name, this._description;
+    return {
+      name: this._name.textContent,
+      about: this._about.textContent,
+    };
   }
 
-  setUserInfo(title, description) {
-    this._profiletitleElement.textContent = title;
-    this._profileDescriptionElement.textContent = description;
-  }
-  setEventListeners() {
-    this._popupForm.addEventListener("submit", (evt) => {
-      evt.preventDefault();
-      this._handleFormSubmit(this._getInputValues());
-    });
-    super.setEventListeners();
+  setUserInfo(name, about) {
+    this._name.textContent = name;
+    this._about.textContent = about;
   }
 }
