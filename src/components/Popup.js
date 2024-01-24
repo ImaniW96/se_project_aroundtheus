@@ -15,7 +15,7 @@ export default class Popup {
     }
   }
   setEventListeners() {
-    this._popupElement.addEventListeners("click", (evt) => {
+    this._popupElement.addEventListener("click", (evt) => {
       evt.preventDefault();
     });
   }

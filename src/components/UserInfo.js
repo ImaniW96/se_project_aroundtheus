@@ -12,7 +12,7 @@ export default class Userinfo {
     this._profileDescriptionElement.textContent = description;
   }
   setEventListeners() {
-    this._popupForm.addEventListeners("submit", (evt) => {
+    this._popupForm.addEventListener("submit", (evt) => {
       evt.preventDefault();
       this._handleFormSubmit(this._getInputValues());
     });

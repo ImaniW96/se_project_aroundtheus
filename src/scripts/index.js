@@ -46,11 +46,23 @@ const section = new Section(
   ".cards__list"
 );
 section.renderItems();
-const newCardPopup = new PopupWithForm("#profile-add-modal", () => {});
+const newCardPopup = new PopupWithForm("#profile-add-modal", (inputValues) => {
+  console.log(inputValues);
+  e.preventDefault();
+  const cardData = { name: addCardTitleInput.value, link: cardURLInput.value };
+  const cardElement = createCard(cardData);
+
+  cardsList.prepend(cardElement);
+
+  // closePopup(addModal);
+  newCardPopup.close();
+  addForm.reset();
+  addFormValidator.resetValidation();
+});
 newCardPopup.setEventListeners();
 
 const imageCardPopup = new PopupWithImage("#preview-card-modal");
-const Usersinfo = new Usersinfo();
+const Usersinfo = new Usersinfo("#");
 
 //Elements
 
@@ -145,23 +157,24 @@ previewImageCloseModal.addEventListener("click", () => {
 });
 
 profileEditForm.addEventListener("submit", (e) => {
-  e.preventDefault();
-  profileTitle.textContent = profileTitleInput.value;
-  profileDescription.textContent = profileDescriptionInput.value;
-  closePopup(profileEditModal);
+  // e.preventDefault();
+  // profileTitle.textContent = profileTitleInput.value;
+  // profileDescription.textContent = profileDescriptionInput.value;
+  // closePopup(profileEditModal);
+  Usersinfo.setUserInfo();
 });
 
-addForm.addEventListener("submit", (e) => {
-  e.preventDefault();
-  const cardData = { name: addCardTitleInput.value, link: cardURLInput.value };
-  const cardElement = createCard(cardData);
+// addForm.addEventListener("submit", (e) => {
+//   e.preventDefault();
+//   const cardData = { name: addCardTitleInput.value, link: cardURLInput.value };
+//   const cardElement = createCard(cardData);
 
-  cardsList.prepend(cardElement);
+//   cardsList.prepend(cardElement);
 
-  closePopup(addModal);
-  addForm.reset();
-  addFormValidator.resetValidation();
-});
+//   closePopup(addModal);
+//   addForm.reset();
+//   addFormValidator.resetValidation();
+// });
 
 const modals = [...document.querySelectorAll(".modal")];
 modals.forEach((modal) => {
