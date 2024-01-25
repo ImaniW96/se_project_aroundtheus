@@ -14,9 +14,9 @@ export default class Popup {
       close(modalOpen);
     }
   }
-  setEventListeners() {
-    this._popupElement.addEventListener("click", (evt) => {
-      evt.preventDefault();
-    });
-  }
+  // setEventListeners() {
+  //   this._popupElement.addEventListener("click", (evt) => {
+  //     evt.preventDefault();
+  //   });
+  // }
 }

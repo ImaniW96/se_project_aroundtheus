@@ -54,26 +54,29 @@ const newCardPopup = new PopupWithForm("#profile-add-modal", (inputValues) => {
 
   cardsList.prepend(cardElement);
 
-  // closePopup(addModal);
   newCardPopup.close();
   addForm.reset();
   addFormValidator.resetValidation();
 });
 
-const editProfilePopup = new PopupWithForm("#profile-edit-modal", () => {
-  e.preventDefault();
-  //   const cardData = { name: addCardTitleInput.value, description: cardURLInput.value };
-  profileTitle.textContent = profileTitleInput.value;
-  profileDescription.textContent = profileDescriptionInput.value;
-  editForm.reset();
-  editFormValidator.resetValidation();
-  UserInfo.setUserInfo();
-  editProfilePopup.close();
-});
+const editProfilePopup = new PopupWithForm(
+  "#profile-edit-modal",
+  (inputValues) => {
+    e.preventDefault();
+    //   const cardData = { name: addCardTitleInput.value, description: cardURLInput.value };
+    // profileTitle.textContent = profileTitleInput.value;
+    // profileDescription.textContent = profileDescriptionInput.value;
+    editForm.reset();
+    editFormValidator.resetValidation();
+    UserInfo.setUserInfo("profile__title", "profile__description");
+    editProfilePopup.close();
+  }
+);
 newCardPopup.setEventListeners();
+editProfilePopup.setEventListeners();
 
 const imageCardPopup = new PopupWithImage("#preview-card-modal");
-const userInfo = new UserInfo(".profile__title", "profile__description");
+const userInfo = new UserInfo(".profile__title", ".profile__description");
 
 //Elements
 
@@ -148,8 +151,10 @@ function handleImageClick(cardData) {
 // EventListener
 
 profileEditButton.addEventListener("click", () => {
-  profileTitleInput.value = profileTitle.textContent;
-  profileDescriptionInput.value = profileDescription.textContent;
+  const { name, about } = userInfo.getUserInfo();
+  // const userData = userInfo.getUserInfo();
+  profileTitleInput.value = name;
+  profileDescriptionInput.value = about;
   editFormValidator.resetValidation();
   editProfilePopup.open();
 });
@@ -194,12 +199,6 @@ modals.forEach((modal) => {
       newCardPopup.close(event.currentTarget);
     }
   });
-});
-
-// ititialization
-initialCards.forEach((cardData) => {
-  const cardElement = createCard(cardData);
-  cardsList.prepend(cardElement);
 });
 
 function createCard(cardData) {
