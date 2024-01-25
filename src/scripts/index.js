@@ -158,7 +158,7 @@ profileAddButton.addEventListener("click", () => {
 });
 
 profileEditCloseButton.addEventListener("click", () => {
-  newCardPopup.close();
+  editProfilePopup.close();
 });
 addCardCloseButton.addEventListener("click", () => {
   newCardPopup.close();
