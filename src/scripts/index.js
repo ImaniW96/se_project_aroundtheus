@@ -60,12 +60,13 @@ const newCardPopup = new PopupWithForm("#profile-add-modal", (inputValues) => {
 const editProfilePopup = new PopupWithForm(
   "#profile-edit-modal",
   (inputValues) => {
+    //  UserInfo.setUserInfo(".profile__title", ".profile__description");
+    // UserInfo.setUserInfo(input.name, input.value);
+
     // e.preventDefault();
     //   const cardData = { name: addCardTitleInput.value, description: cardURLInput.value };
     // profileTitle.textContent = profileTitleInput.value;
     // profileDescription.textContent = profileDescriptionInput.value;
-    //  UserInfo.setUserInfo(".profile__title", ".profile__description");
-    UserInfo.setUserInfo(input.name, input.value);
     editForm.reset();
     editFormValidator.resetValidation();
     editProfilePopup.close();
