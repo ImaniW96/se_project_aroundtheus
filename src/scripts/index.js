@@ -48,12 +48,10 @@ const section = new Section(
 section.renderItems();
 const newCardPopup = new PopupWithForm("#profile-add-modal", (inputValues) => {
   console.log(inputValues);
-  e.preventDefault();
-  const cardData = { name: addCardTitleInput.value, link: cardURLInput.value };
-  const cardElement = createCard(cardData);
-
+  // e.preventDefault();
+  // const cardData = { name: addCardTitleInput.value, link: cardURLInput.value };
+  const cardElement = createCard(inputValues);
   cardsList.prepend(cardElement);
-
   newCardPopup.close();
   addForm.reset();
   addFormValidator.resetValidation();
@@ -62,13 +60,14 @@ const newCardPopup = new PopupWithForm("#profile-add-modal", (inputValues) => {
 const editProfilePopup = new PopupWithForm(
   "#profile-edit-modal",
   (inputValues) => {
-    e.preventDefault();
+    // e.preventDefault();
     //   const cardData = { name: addCardTitleInput.value, description: cardURLInput.value };
     // profileTitle.textContent = profileTitleInput.value;
     // profileDescription.textContent = profileDescriptionInput.value;
+    //  UserInfo.setUserInfo(".profile__title", ".profile__description");
+    UserInfo.setUserInfo(input.name, input.value);
     editForm.reset();
     editFormValidator.resetValidation();
-    UserInfo.setUserInfo("profile__title", "profile__description");
     editProfilePopup.close();
   }
 );
@@ -152,7 +151,6 @@ function handleImageClick(cardData) {
 
 profileEditButton.addEventListener("click", () => {
   const { name, about } = userInfo.getUserInfo();
-  // const userData = userInfo.getUserInfo();
   profileTitleInput.value = name;
   profileDescriptionInput.value = about;
   editFormValidator.resetValidation();
