@@ -62,7 +62,7 @@ const editProfilePopup = new PopupWithForm(
   (inputValues) => {
     UserInfo.setUserInfo("name", "about");
     // UserInfo.setUserInfo(input.name, input.value);
-    const userinfo = UserInfo("profile__title", ".profile__discription");
+    const userinfo = UserInfo("input.name", "input.name");
     // e.preventDefault();
     editForm.reset();
     editFormValidator.resetValidation();
