@@ -12,11 +12,6 @@ export default class PopupWithImage extends Popup {
     popupCaption.textContent = cardData.name;
     super.open(cardData);
   }
-  //    _handleEscapeClose ()=>{
-  //     close() {
-  //         this._popupElement.classList.remove("modal_opened");
-  //       }
-  //    })
 }
 // data should be an object containing the name and link
 // open(data) {
