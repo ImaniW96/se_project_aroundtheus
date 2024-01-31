@@ -10,15 +10,19 @@ export default class Popup {
     this._popupElement.classList.remove("modal_opened");
     document.addEventListener("keydown", this._handleEscapeClose);
   }
-  _handleEscapeClose(close, evt) {
-    const modalOpen = document.querySelector("modal_opened");
+  _handleEscapeClose(evt) {
+    this._popupElement.add("modal_opened");
     if (evt.key === "Escape") {
-      close(modalOpen);
+      this.close();
     }
   }
   setEventListeners() {
+    // document.addEventListener("keydown", this._handleEscapeClose.bind(this));
     // this._popupElement.addEventListener("click", (evt) => {
     //   evt.preventDefault();
     // });
+  }
+  addEscapeEventListeners() {
+    document.addEventListener("keydown", this._handleEscapeClose.bind(this));
   }
 }

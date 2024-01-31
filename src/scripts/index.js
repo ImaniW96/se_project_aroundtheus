@@ -47,9 +47,6 @@ const section = new Section(
 );
 section.renderItems();
 const newCardPopup = new PopupWithForm("#profile-add-modal", (inputValues) => {
-  console.log(inputValues);
-  // e.preventDefault();
-  // const cardData = { name: addCardTitleInput.value, link: cardURLInput.value };
   const cardElement = createCard(inputValues);
   cardsList.prepend(cardElement);
   newCardPopup.close();
@@ -60,21 +57,25 @@ const newCardPopup = new PopupWithForm("#profile-add-modal", (inputValues) => {
 const editProfilePopup = new PopupWithForm(
   "#profile-edit-modal",
   (inputValues) => {
-    UserInfo.setUserInfo("name", "about");
     // UserInfo.setUserInfo(input.name, input.value);
-    const userinfo = UserInfo("input.name", "input.name");
+    const userInfo = new UserInfo(".profile__title", ".profile__description");
+    userInfo.setUserInfo("Jacques Cousteau", "Explorer");
+    // const userInfo = UserInfo.getUserInfo();
     // e.preventDefault();
-    editForm.reset();
-    editFormValidator.resetValidation();
+
+    console.log(userInfo);
+    // editForm.reset();
+    // editFormValidator.resetValidation();
     editProfilePopup.close();
   }
 );
 newCardPopup.setEventListeners();
 editProfilePopup.setEventListeners();
+// handleImageClose.setEventListeners();
 
 const imageCardPopup = new PopupWithImage("#preview-card-modal");
 const userInfo = new UserInfo(".profile__title", ".profile__description");
-
+// const handleImageClose = closeImagePopup("#preview-card-modal");
 //Elements
 
 const profileEditButton = document.querySelector("#profile-edit-button");
