@@ -8,21 +8,16 @@ export default class Popup {
   }
   close() {
     this._popupElement.classList.remove("modal_opened");
-    document.addEventListener("keydown", this._handleEscapeClose);
+    document.removeEventListener("keydown", this._handleEscapeClose);
   }
-  _handleEscapeClose(evt) {
-    this._popupElement.add("modal_opened");
+  _handleEscapeClose = (evt) => {
     if (evt.key === "Escape") {
       this.close();
     }
-  }
+  };
   setEventListeners() {
-    // document.addEventListener("keydown", this._handleEscapeClose.bind(this));
     // this._popupElement.addEventListener("click", (evt) => {
-    //   evt.preventDefault();
+    //   // evt.preventDefault();
     // });
-  }
-  addEscapeEventListeners() {
-    document.addEventListener("keydown", this._handleEscapeClose.bind(this));
   }
 }

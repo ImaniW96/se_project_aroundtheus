@@ -57,13 +57,13 @@ const newCardPopup = new PopupWithForm("#profile-add-modal", (inputValues) => {
 const editProfilePopup = new PopupWithForm(
   "#profile-edit-modal",
   (inputValues) => {
-    // UserInfo.setUserInfo(input.name, input.value);
     const userInfo = new UserInfo(".profile__title", ".profile__description");
-    userInfo.setUserInfo("Jacques Cousteau", "Explorer");
-    // const userInfo = UserInfo.getUserInfo();
+    // userInfo.setUserInfo("name", "about");
+    userInfo.setUserInfo(inputValues);
+    userInfo.getUserInfo();
     // e.preventDefault();
 
-    console.log(userInfo);
+    console.log(inputValues);
     // editForm.reset();
     // editFormValidator.resetValidation();
     editProfilePopup.close();
@@ -75,7 +75,7 @@ editProfilePopup.setEventListeners();
 
 const imageCardPopup = new PopupWithImage("#preview-card-modal");
 const userInfo = new UserInfo(".profile__title", ".profile__description");
-// const handleImageClose = closeImagePopup("#preview-card-modal");
+
 //Elements
 
 const profileEditButton = document.querySelector("#profile-edit-button");
