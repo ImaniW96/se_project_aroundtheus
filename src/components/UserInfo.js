@@ -10,9 +10,10 @@ export default class UserInfo {
     };
   }
 
-  setUserInfo(name, about) {
-    this._name.textContent = name;
-    this._about.textContent = about;
+  setUserInfo(inputValues) {
+    debugger;
+    this._name.textContent = inputValues.name;
+    this._about.textContent = inputValues.about;
     // this._nameSelector = document.querySelector(".profile__title");
     // this._aboutSelector = document.querySelector(".profile__description");
   }

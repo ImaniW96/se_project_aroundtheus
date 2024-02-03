@@ -57,24 +57,17 @@ const newCardPopup = new PopupWithForm("#profile-add-modal", (inputValues) => {
 const editProfilePopup = new PopupWithForm(
   "#profile-edit-modal",
   (inputValues) => {
-    const userInfo = new UserInfo(".profile__title", ".profile__description");
-    // userInfo.setUserInfo("name", "about");
     userInfo.setUserInfo(inputValues);
-    userInfo.getUserInfo();
-    // e.preventDefault();
-
     console.log(inputValues);
-    // editForm.reset();
-    // editFormValidator.resetValidation();
+    editForm.reset();
+    editFormValidator.resetValidation();
     editProfilePopup.close();
   }
 );
 newCardPopup.setEventListeners();
 editProfilePopup.setEventListeners();
-// handleImageClose.setEventListeners();
-
 const imageCardPopup = new PopupWithImage("#preview-card-modal");
-const userInfo = new UserInfo(".profile__title", ".profile__description");
+imageCardPopup.setEventListeners();
 
 //Elements
 
@@ -120,6 +113,7 @@ const config = {
   inputErrorClass: "modal__input_type_error",
   errorClass: "modal__error_visable",
 };
+const userInfo = new UserInfo(".profile__title", ".profile__description");
 
 const editFormValidator = new FormValidator(config, profileEditForm);
 const addFormValidator = new FormValidator(config, addForm);
@@ -189,14 +183,14 @@ previewImageCloseModal.addEventListener("click", () => {
 //   addFormValidator.resetValidation();
 // });
 
-const modals = [...document.querySelectorAll(".modal")];
-modals.forEach((modal) => {
-  modal.addEventListener("mousedown", (event) => {
-    if (event.target === event.currentTarget) {
-      newCardPopup.close(event.currentTarget);
-    }
-  });
-});
+// const modals = [...document.querySelectorAll(".modal")];
+// modals.forEach((modal) => {
+//   modal.addEventListener("mousedown", (event) => {
+//     if (event.target === event.currentTarget) {
+//       newCardPopup.close(event.currentTarget);
+//     }
+//   });
+// });
 
 function createCard(cardData) {
   const card = new Card(cardData, "#card-template", handleImageClick);
