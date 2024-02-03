@@ -11,7 +11,6 @@ export default class UserInfo {
   }
 
   setUserInfo(inputValues) {
-    debugger;
     this._name.textContent = inputValues.name;
     this._about.textContent = inputValues.about;
     // this._nameSelector = document.querySelector(".profile__title");
