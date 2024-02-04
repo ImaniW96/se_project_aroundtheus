@@ -64,6 +64,7 @@ const editProfilePopup = new PopupWithForm(
     editProfilePopup.close();
   }
 );
+const editForm = document.querySelector(".modal__form");
 newCardPopup.setEventListeners();
 editProfilePopup.setEventListeners();
 const imageCardPopup = new PopupWithImage("#preview-card-modal");
@@ -119,23 +120,6 @@ const editFormValidator = new FormValidator(config, profileEditForm);
 const addFormValidator = new FormValidator(config, addForm);
 //Functions
 
-// function closePopup(modal) {
-//   document.removeEventListener("keydown", closeModalByEscape);
-//   modal.classList.remove("modal_opened");
-// }
-
-// function openPopup(modal) {
-//   document.addEventListener("keydown", closeModalByEscape);
-//   modal.classList.add("modal_opened");
-// }
-// function closeModalByEscape(event) {
-//   if (event.key === "Escape") {
-//     const modalOpened = document.querySelector(".modal_opened");
-//     if (modalOpened) {
-//       closePopup(modalOpened);
-//     }
-//   }
-// }
 function handleImageClick(cardData) {
   imageCardPopup.open(cardData);
 }
@@ -162,35 +146,6 @@ addCardCloseButton.addEventListener("click", () => {
 previewImageCloseModal.addEventListener("click", () => {
   imageCardPopup.close();
 });
-
-// profileEditForm.addEventListener("submit", (e) => {
-//   // e.preventDefault();
-//   // profileTitle.textContent = profileTitleInput.value;
-//   // profileDescription.textContent = profileDescriptionInput.value;
-//   // closePopup(profileEditModal);
-//   Usersinfo.setUserInfo();
-// });
-
-// addForm.addEventListener("submit", (e) => {
-//   e.preventDefault();
-//   const cardData = { name: addCardTitleInput.value, link: cardURLInput.value };
-//   const cardElement = createCard(cardData);
-
-//   cardsList.prepend(cardElement);
-
-//   closePopup(addModal);
-//   addForm.reset();
-//   addFormValidator.resetValidation();
-// });
-
-// const modals = [...document.querySelectorAll(".modal")];
-// modals.forEach((modal) => {
-//   modal.addEventListener("mousedown", (event) => {
-//     if (event.target === event.currentTarget) {
-//       newCardPopup.close(event.currentTarget);
-//     }
-//   });
-// });
 
 function createCard(cardData) {
   const card = new Card(cardData, "#card-template", handleImageClick);
