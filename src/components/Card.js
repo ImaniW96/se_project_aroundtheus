@@ -13,7 +13,8 @@ export default class Card {
     });
 
     this._cardDeleteButton.addEventListener("click", () => {
-      this._cardElement.remove();
+      // this._cardElement.remove();
+      this._handleDeleteCard();
     });
     this._cardImageEl.addEventListener("click", () => {
       this._handleImageClick(this._cardData);
