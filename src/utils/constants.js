@@ -1,6 +1,5 @@
-export const initialCards = [cardData];
 // export const card = document.querySelector("#card-template");
- 
+
 export const profileEditButton = document.querySelector("#profile-edit-button");
 export const profileEditModal = document.querySelector("#profile-edit-modal");
 export const addModal = document.querySelector("#profile-add-modal");
@@ -48,7 +47,7 @@ export const config = {
   inputErrorClass: "modal__input_type_error",
   errorClass: "modal__error_visable",
 };
-const initialCards = [
+export const initialCards = [
   {
     name: "Yosemite Valley",
     link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/yosemite.jpg",
