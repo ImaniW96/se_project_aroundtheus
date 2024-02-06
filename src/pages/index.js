@@ -91,12 +91,12 @@ profileAddButton.addEventListener("click", () => {
   newCardPopup.open();
 });
 
-addCardCloseButton.addEventListener("click", () => {
-  newCardPopup.close();
-});
-previewImageCloseModal.addEventListener("click", () => {
-  imageCardPopup.close();
-});
+// addCardCloseButton.addEventListener("click", () => {
+//   newCardPopup.close();
+// });
+// previewImageCloseModal.addEventListener("click", () => {
+//   imageCardPopup.close();
+// });
 
 function createCard(cardData) {
   const card = new Card(cardData, "#card-template", handleImageClick);
