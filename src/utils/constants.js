@@ -1,5 +1,3 @@
-// export const card = document.querySelector("#card-template");
-
 export const profileEditButton = document.querySelector("#profile-edit-button");
 export const profileEditModal = document.querySelector("#profile-edit-modal");
 export const addModal = document.querySelector("#profile-add-modal");
