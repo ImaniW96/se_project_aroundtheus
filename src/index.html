@@ -172,7 +172,44 @@
         ></button>
       </div>
     </div>
+    <!-- Change Profile picture Popup -->
+    <div class="modal" id="profile-picture-modal">
+      <div class="modal__container_pfp">
+        <button
+          class="modal__close"
+          id="profile-picture-close-button"
+          aria-label="closebutton"
+          type="button"
+        ></button>
+        <form class="modal__form">
+          <h1 class="modal__heading">Change Profile Picture</h1>
 
+          <label class="modal__label">
+            <input
+              type="url"
+              name="link"
+              id="profile-picture-link-input"
+              placeholder="image URL"
+              class="modal__input modal__input_type_url"
+              required
+            />
+            <span
+              class="modal__error"
+              id="profile-add-description-input-error"
+            ></span>
+          </label>
+          <button
+            class="modal__button modal__button_disabled"
+            aria-label="savebutton"
+            type="submit"
+            disabled
+          >
+            Save
+          </button>
+        </form>
+      </div>
+    </div>
+    <!-- Delete Card Popup -->
     <template id="card-template">
       <li class="card">
         <img src="#" class="card__image" alt="#" />

@@ -52,6 +52,10 @@
   border-radius: 10px;
   position: relative;
 }
+.modal__container_pfp {
+  width: 430px;
+  height: 272px;
+}
 .modal__close {
   background-image: url(../images/closebutton.svg);
   border: none;
