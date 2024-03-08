@@ -29,7 +29,22 @@ import {
   previewImageCloseModal,
   config,
 } from "../utils/constants.js";
-
+fetch("https://around-api.en.tripleten-services.com/v1/cards", {
+  headers: {
+    authorization: "e3f5bc64-c279-4474-9c65-8c5ae0831eb9",
+  },
+})
+  .then((res) => res.json())
+  .then((result) => {
+    console.log(result);
+  });
+const api = new Api({
+  baseUrl: "https://around-api.en.tripleten-services.com/v1",
+  headers: {
+    authorization: "e3f5bc64-c279-4474-9c65-8c5ae0831eb9",
+    "Content-Type": "application/json",
+  },
+});
 const section = new Section(
   {
     items: initialCards,
