@@ -6,6 +6,7 @@ import PopupWithForm from "../components/PopupWithForm.js";
 import PopupWithImage from "../components/PopupWithImage.js";
 import UserInfo from "../components/UserInfo.js";
 import { initialCards } from "../utils/constants.js";
+import Api from "../components/Api.js";
 import {
   profileEditButton,
   profileEditModal,
@@ -38,19 +39,14 @@ fetch("https://around-api.en.tripleten-services.com/v1/cards", {
   .then((result) => {
     console.log(result);
   });
-const api = new Api({
-  baseUrl: "https://around-api.en.tripleten-services.com/v1",
-  headers: {
-    authorization: "e3f5bc64-c279-4474-9c65-8c5ae0831eb9",
-    "Content-Type": "application/json",
-  },
-});
+
 const section = new Section(
   {
     items: initialCards,
     renderer: (cardData) => {
       const cardElement = createCard(cardData);
       section.addItem(cardElement);
+      Api.createCard();
     },
   },
   ".cards__list"
@@ -87,6 +83,7 @@ const userInfo = new UserInfo(".profile__title", ".profile__description");
 
 const editFormValidator = new FormValidator(config, profileEditForm);
 const addFormValidator = new FormValidator(config, addForm);
+
 //Functions
 
 function handleImageClick(cardData) {
@@ -109,6 +106,8 @@ profileAddButton.addEventListener("click", () => {
 function createCard(cardData) {
   const card = new Card(cardData, "#card-template", handleImageClick);
   const cardElement = card.getView();
+  const myApi = newApi();
+  myApi.getInitialCards();
   return cardElement;
 }
 
