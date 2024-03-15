@@ -39,14 +39,14 @@ fetch("https://around-api.en.tripleten-services.com/v1/cards", {
   .then((result) => {
     console.log(result);
   });
-
+const api = new Api();
 const section = new Section(
   {
     items: initialCards,
     renderer: (cardData) => {
       const cardElement = createCard(cardData);
       section.addItem(cardElement);
-      Api.createCard();
+      api.createCard();
     },
   },
   ".cards__list"
@@ -103,8 +103,7 @@ profileAddButton.addEventListener("click", () => {
 function createCard(cardData) {
   const card = new Card(cardData, "#card-template", handleImageClick);
   const cardElement = card.getView();
-  const myApi = newApi();
-  myApi.getInitialCards();
+  api.getInitialCards();
   return cardElement;
 }
 
