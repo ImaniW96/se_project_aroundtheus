@@ -54,10 +54,8 @@ const section = new Section(
 section.renderItems();
 const newCardPopup = new PopupWithForm("#profile-add-modal", (inputValues) => {
   const cardElement = createCard(inputValues);
-  // cardsList.prepend(cardElement);
   section.addItem(cardElement);
   newCardPopup.close();
-  // addForm.reset();
   addFormValidator.resetValidation();
 });
 
@@ -66,7 +64,6 @@ const editProfilePopup = new PopupWithForm(
   (inputValues) => {
     userInfo.setUserInfo(inputValues);
     console.log(inputValues);
-    // editForm.reset();
     editFormValidator.resetValidation();
     editProfilePopup.close();
   }

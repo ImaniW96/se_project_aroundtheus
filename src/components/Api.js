@@ -83,3 +83,12 @@ const api = new Api({
     "Content-Type": "application/json",
   },
 });
+
+fetch("https://around-api.en.tripleten-services.com/v1/users/me", {
+  method: "PATCH",
+  headers: {
+    authorization: "e3f5bc64-c279-4474-9c65-8c5ae0831eb9",
+    "Content-Type": "application/json",
+  },
+  body: JSON.stringify({}),
+});
