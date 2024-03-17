@@ -52,11 +52,21 @@ const section = new Section(
   ".cards__list"
 );
 section.renderItems();
+// const newCardPopup = new PopupWithForm("#profile-add-modal", (inputValues) => {
+//   api.createCard(name, link);
+
+//   const cardElement = createCard(inputValues);
+//   section.addItem(cardElement);
+//   newCardPopup.close();
+//   addFormValidator.resetValidation();
+// });
 const newCardPopup = new PopupWithForm("#profile-add-modal", (inputValues) => {
-  const cardElement = createCard(inputValues);
-  section.addItem(cardElement);
-  newCardPopup.close();
-  addFormValidator.resetValidation();
+  api.createCard(inputValues).then((res) => {
+    const cardElement = createCard(inputValues);
+    section.addItem(cardElement);
+    newCardPopup.close();
+    addFormValidator.resetValidation();
+  });
 });
 
 const editProfilePopup = new PopupWithForm(
