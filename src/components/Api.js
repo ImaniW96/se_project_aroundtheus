@@ -1,18 +1,23 @@
 export default class Api {
-  constructor(options) {
+  constructor({ baseUrl, headers }) {
     //
+    this._baseUrl = baseUrl;
+    this._headers = headers;
+  }
+
+  checkResponse(res) {
+    if (res.ok) {
+      return res.json();
+    }
+    return Promise.reject(`Error: ${res.status}`);
   }
 
   getInitialCards() {
-    return fetch("https://around-api.en.tripleten-services.com/v1/cards", {
+    return fetch(`${this._baseUrl}/cards`, {
       method: "GET",
-      headers: {
-        authorization: "e3f5bc64-c279-4474-9c65-8c5ae0831eb9",
-      },
+      headers: this._headers,
     }).then((res) => {
-      if (res.ok) {
-        return res.json();
-      }
+      return this.checkResponse(res);
     });
   }
   createCard() {
@@ -21,6 +26,10 @@ export default class Api {
       headers: {
         authorization: "e3f5bc64-c279-4474-9c65-8c5ae0831eb9",
       },
+      body: JSON.stringify({
+        name: "inputValues.name",
+        about: "inputValues.link",
+      }),
     }).then((res) => {
       if (res.ok) {
         return res.json();
@@ -66,29 +75,9 @@ export default class Api {
   loadUserInfo() {
     return fetch("https://around-api.en.tripleten-services.com/v1/users/me", {
       method: "GET",
-      headers: {
-        authorization: "e3f5bc64-c279-4474-9c65-8c5ae0831eb9",
-      },
+      headers: this._headers,
     }).then((res) => {
-      if (res.ok) {
-        return res.json();
-      }
+      return this.checkResponse(res);
     });
   }
 }
-const api = new Api({
-  baseUrl: "https://around-api.en.tripleten-services.com/v1",
-  headers: {
-    authorization: "e3f5bc64-c279-4474-9c65-8c5ae0831eb9",
-    "Content-Type": "application/json",
-  },
-});
-
-fetch("https://around-api.en.tripleten-services.com/v1/users/me", {
-  method: "PATCH",
-  headers: {
-    authorization: "e3f5bc64-c279-4474-9c65-8c5ae0831eb9",
-    "Content-Type": "application/json",
-  },
-  body: JSON.stringify({}),
-});

@@ -30,23 +30,13 @@ import {
   previewImageCloseModal,
   config,
 } from "../utils/constants.js";
-fetch("https://around-api.en.tripleten-services.com/v1/cards", {
-  headers: {
-    authorization: "e3f5bc64-c279-4474-9c65-8c5ae0831eb9",
-  },
-})
-  .then((res) => res.json())
-  .then((result) => {
-    console.log(result);
-  });
-const api = new Api();
+
 const section = new Section(
   {
     items: initialCards,
     renderer: (cardData) => {
       const cardElement = createCard(cardData);
       section.addItem(cardElement);
-      api.createCard();
     },
   },
   ".cards__list"
@@ -90,7 +80,13 @@ const userInfo = new UserInfo(".profile__title", ".profile__description");
 
 const editFormValidator = new FormValidator(config, profileEditForm);
 const addFormValidator = new FormValidator(config, addForm);
-
+const api = new Api({
+  baseUrl: "https://around-api.en.tripleten-services.com/v1",
+  headers: {
+    authorization: "e3f5bc64-c279-4474-9c65-8c5ae0831eb9",
+    "Content-Type": "application/json",
+  },
+});
 //Functions
 
 function handleImageClick(cardData) {
@@ -113,9 +109,21 @@ profileAddButton.addEventListener("click", () => {
 function createCard(cardData) {
   const card = new Card(cardData, "#card-template", handleImageClick);
   const cardElement = card.getView();
-  api.getInitialCards();
+
   return cardElement;
 }
 
 editFormValidator.enableValidation();
 addFormValidator.enableValidation();
+//get user info from server and set it locally on the page
+api
+  .loadUserInfo()
+  .then((info) => {
+    userInfo.setUserInfo(info);
+  })
+  .catch((err) => {
+    console.error(err);
+    alert(`${err}. Failed to get user info.`);
+  });
+
+//get cards from server and render them on the page
