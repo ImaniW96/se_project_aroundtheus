@@ -1,6 +1,5 @@
 export default class Api {
   constructor({ baseUrl, headers }) {
-    //
     this._baseUrl = baseUrl;
     this._headers = headers;
   }
@@ -21,55 +20,39 @@ export default class Api {
     });
   }
   createCard() {
-    return fetch("https://around-api.en.tripleten-services.com/v1/cards", {
+    return fetch(`${this._baseUrl}/cards`, {
       method: "POST",
-      headers: {
-        authorization: "e3f5bc64-c279-4474-9c65-8c5ae0831eb9",
-      },
+      headers: this._headers,
       body: JSON.stringify({
         name: "inputValues.name",
         about: "inputValues.link",
       }),
     }).then((res) => {
-      if (res.ok) {
-        return res.json();
-      }
+      return this.checkResponse(res);
     });
   }
   likeCards() {
-    return fetch("https://around-api.en.tripleten-services.com/v1/like", {
+    return fetch(`${this._baseUrl}/likes`, {
       method: "POST",
-      headers: {
-        authorization: "e3f5bc64-c279-4474-9c65-8c5ae0831eb9",
-      },
+      headers: this._headers,
     }).then((res) => {
-      if (res.ok) {
-        return res.json();
-      }
+      return this.checkResponse(res);
     });
   }
   deleteCards() {
-    return fetch("https://around-api.en.tripleten-services.com/v1/cards", {
+    return fetch(`${this._baseUrl}/cards`, {
       method: "DELETE",
-      headers: {
-        authorization: "e3f5bc64-c279-4474-9c65-8c5ae0831eb9",
-      },
+      headers: this._headers,
     }).then((res) => {
-      if (res.ok) {
-        return res.json();
-      }
+      return this.checkResponse(res);
     });
   }
   dislikeCards() {
-    return fetch("https://around-api.en.tripleten-services.com/v1/likes", {
+    return fetch(`${this._baseUrl}/likes`, {
       method: "DELETE",
-      headers: {
-        authorization: "e3f5bc64-c279-4474-9c65-8c5ae0831eb9",
-      },
+      headers: this._headers,
     }).then((res) => {
-      if (res.ok) {
-        return res.json();
-      }
+      return this.checkResponse(res);
     });
   }
   loadUserInfo() {
