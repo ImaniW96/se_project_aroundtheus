@@ -127,3 +127,12 @@ api
   });
 
 //get cards from server and render them on the page
+api
+  .getInitialCards()
+  .then((cardData) => {
+    section.initialCards(cardData);
+  })
+  .catch((err) => {
+    console.error(err);
+    alert(`${err}. Failed to load cards.`);
+  });
