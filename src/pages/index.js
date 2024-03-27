@@ -31,17 +31,18 @@ import {
   config,
 } from "../utils/constants.js";
 
-const section = new Section(
-  {
-    items: initialCards,
-    renderer: (cardData) => {
-      const cardElement = createCard(cardData);
-      section.addItem(cardElement);
-    },
-  },
-  ".cards__list"
-);
-section.renderItems();
+// const section = new Section(
+//   {
+//     items: initialCards,
+//     renderer: (cardData) => {
+//       const cardElement = createCard(cardData);
+//       section.addItem(cardElement);
+//     },
+//   },
+//   ".cards__list"
+// );
+// section.renderItems();
+
 // const newCardPopup = new PopupWithForm("#profile-add-modal", (inputValues) => {
 //   api.createCard(name, link);
 
@@ -129,10 +130,34 @@ api
 //get cards from server and render them on the page
 api
   .getInitialCards()
-  .then((cardData) => {
-    section.initialCards(cardData);
+  .then((card) => {
+    const section = new Section(
+      {
+        items: card,
+        renderer: (cardData) => {
+          const cardElement = createCard(cardData);
+          section.addItem(cardElement);
+        },
+      },
+      ".cards__list"
+    );
+    section.renderItems();
   })
   .catch((err) => {
     console.error(err);
     alert(`${err}. Failed to load cards.`);
+  });
+
+api
+  .editUserProfile({
+    name: inputValues.name,
+    about: inputValues.about,
+  })
+  .then((res) => {
+    userInfo.setUserInfo({ name: res.name, about: res.description });
+    api.getUserInfo(userInfo._name, userInfo._about);
+  })
+  .catch((err) => {
+    console.error(err);
+    alert(`${err}.Failed to update profile`);
   });

@@ -24,8 +24,20 @@ export default class Api {
       method: "POST",
       headers: this._headers,
       body: JSON.stringify({
-        name: "inputValues.name",
-        about: "inputValues.link",
+        name: this._name,
+        about: this._link,
+      }),
+    }).then((res) => {
+      return this.checkResponse(res);
+    });
+  }
+  editUserProfile(res) {
+    return fetch(`${this._baseUrl}/users/me`, {
+      method: "PATCH",
+      headers: this._headers,
+      body: JSON.stringify({
+        name: this._name,
+        about: this._about,
       }),
     }).then((res) => {
       return this.checkResponse(res);
