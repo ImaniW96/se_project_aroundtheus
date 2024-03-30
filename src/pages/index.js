@@ -67,6 +67,7 @@ const editProfilePopup = new PopupWithForm(
     console.log(inputValues);
     editFormValidator.resetValidation();
     editProfilePopup.close();
+    api.editUserProfile();
   }
 );
 const editForm = document.querySelector(".modal__form");
@@ -150,8 +151,8 @@ api
 
 api
   .editUserProfile({
-    name: inputValues.name,
-    about: inputValues.about,
+    name: res.name,
+    about: res.description,
   })
   .then((res) => {
     userInfo.setUserInfo({ name: res.name, about: res.description });

@@ -32,17 +32,19 @@ export default class Api {
     });
   }
   editUserProfile(res) {
+    console.log(res);
     return fetch(`${this._baseUrl}/users/me`, {
       method: "PATCH",
       headers: this._headers,
       body: JSON.stringify({
-        name: this._name,
-        about: this._about,
+        name: res.name,
+        about: res.about,
       }),
     }).then((res) => {
       return this.checkResponse(res);
     });
   }
+
   likeCards() {
     return fetch(`${this._baseUrl}/likes`, {
       method: "POST",
