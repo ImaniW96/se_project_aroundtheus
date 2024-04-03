@@ -62,12 +62,26 @@ const newCardPopup = new PopupWithForm("#profile-add-modal", (inputValues) => {
 
 const editProfilePopup = new PopupWithForm(
   "#profile-edit-modal",
+
   (inputValues) => {
     userInfo.setUserInfo(inputValues);
-    console.log(inputValues);
     editFormValidator.resetValidation();
     editProfilePopup.close();
     api.editUserProfile();
+    api
+      .editUserProfile({
+        name: inputValues.name,
+        about: inputValues.about,
+      })
+
+      .then((res) => {
+        userInfo.setUserInfo({ name: res.name, about: res.description });
+        api.getUserInfo(userInfo._name, userInfo._about);
+      })
+      .catch((err) => {
+        console.error(err);
+        alert(`${err}.Failed to update profile`);
+      });
   }
 );
 const editForm = document.querySelector(".modal__form");
@@ -149,16 +163,16 @@ api
     alert(`${err}. Failed to load cards.`);
   });
 
-api
-  .editUserProfile({
-    name: res.name,
-    about: res.description,
-  })
-  .then((res) => {
-    userInfo.setUserInfo({ name: res.name, about: res.description });
-    api.getUserInfo(userInfo._name, userInfo._about);
-  })
-  .catch((err) => {
-    console.error(err);
-    alert(`${err}.Failed to update profile`);
-  });
+// api
+//   .editUserProfile({
+//     name: res.name,
+//     about: res.description,
+//   })
+//   .then((res) => {
+//     userInfo.setUserInfo({ name: res.name, about: res.description });
+//     api.getUserInfo(userInfo._name, userInfo._about);
+//   })
+//   .catch((err) => {
+//     console.error(err);
+//     alert(`${err}.Failed to update profile`);
+//   });
