@@ -68,6 +68,7 @@ const editProfilePopup = new PopupWithForm(
     editFormValidator.resetValidation();
     editProfilePopup.close();
     api.editUserProfile();
+    console.log(inputValues);
     api
       .editUserProfile({
         name: inputValues.name,
@@ -84,6 +85,7 @@ const editProfilePopup = new PopupWithForm(
       });
   }
 );
+console.log(inputValues);
 const editForm = document.querySelector(".modal__form");
 newCardPopup.setEventListeners();
 editProfilePopup.setEventListeners();
