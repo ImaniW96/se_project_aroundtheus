@@ -58,16 +58,31 @@ const newCardPopup = new PopupWithForm("#profile-add-modal", (inputValues) => {
     newCardPopup.close();
     addFormValidator.resetValidation();
   });
+
+  api
+    .addCard({ inputValues })
+    .then((res) => {
+      const cardData = addCard({
+        name: inputValues.name,
+        link: inputValues.link,
+      });
+      cardSection.addItems(cardData);
+    })
+
+    .catch((err) => {
+      console.error(err);
+      alert(`${err}. Failed to add card.`);
+    });
 });
 
 const editProfilePopup = new PopupWithForm(
   "#profile-edit-modal",
-
   (inputValues) => {
+    console.log(inputValues);
     userInfo.setUserInfo(inputValues);
     editFormValidator.resetValidation();
     editProfilePopup.close();
-    api.editUserProfile();
+    // api.editUserProfile();
     console.log(inputValues);
     api
       .editUserProfile({
@@ -85,7 +100,7 @@ const editProfilePopup = new PopupWithForm(
       });
   }
 );
-console.log(inputValues);
+
 const editForm = document.querySelector(".modal__form");
 newCardPopup.setEventListeners();
 editProfilePopup.setEventListeners();
@@ -164,6 +179,22 @@ api
     console.error(err);
     alert(`${err}. Failed to load cards.`);
   });
+
+// api
+//   .addCard()
+//   .then((res) => {
+//     const cardData = renderCard({
+//       name: inputValues.name,
+//       link: inputValues.link,
+//     });
+//     cardSection.addItems(cardData);
+//     profileAddCardPopup.close();
+//   })
+
+//   .catch((err) => {
+//     console.error(err);
+//     alert(`${err}. Failed to add card.`);
+//   });
 
 // api
 //   .editUserProfile({

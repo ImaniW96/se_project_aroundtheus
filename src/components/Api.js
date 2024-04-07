@@ -19,6 +19,14 @@ export default class Api {
       return this.checkResponse(res);
     });
   }
+  addCard() {
+    return fetch(`${this._baseUrl}/cards`, {
+      method: "POST",
+      headers: this._headers,
+    }).then((res) => {
+      return this.checkResponse(res);
+    });
+  }
   createCard() {
     return fetch(`${this._baseUrl}/cards`, {
       method: "POST",
