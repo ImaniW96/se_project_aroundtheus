@@ -31,26 +31,6 @@ import {
   config,
 } from "../utils/constants.js";
 
-// const section = new Section(
-//   {
-//     items: initialCards,
-//     renderer: (cardData) => {
-//       const cardElement = createCard(cardData);
-//       section.addItem(cardElement);
-//     },
-//   },
-//   ".cards__list"
-// );
-// section.renderItems();
-
-// const newCardPopup = new PopupWithForm("#profile-add-modal", (inputValues) => {
-//   api.createCard(name, link);
-
-//   const cardElement = createCard(inputValues);
-//   section.addItem(cardElement);
-//   newCardPopup.close();
-//   addFormValidator.resetValidation();
-// });
 const newCardPopup = new PopupWithForm("#profile-add-modal", (inputValues) => {
   api.createCard(inputValues).then((res) => {
     const cardElement = createCard(inputValues);
@@ -58,21 +38,6 @@ const newCardPopup = new PopupWithForm("#profile-add-modal", (inputValues) => {
     newCardPopup.close();
     addFormValidator.resetValidation();
   });
-
-  api
-    .addCard({ inputValues })
-    .then((res) => {
-      const cardData = addCard({
-        name: inputValues.name,
-        link: inputValues.link,
-      });
-      cardSection.addItems(cardData);
-    })
-
-    .catch((err) => {
-      console.error(err);
-      alert(`${err}. Failed to add card.`);
-    });
 });
 
 const editProfilePopup = new PopupWithForm(
@@ -82,7 +47,7 @@ const editProfilePopup = new PopupWithForm(
     userInfo.setUserInfo(inputValues);
     editFormValidator.resetValidation();
     editProfilePopup.close();
-    // api.editUserProfile();
+
     console.log(inputValues);
     api
       .editUserProfile({
@@ -140,8 +105,15 @@ profileAddButton.addEventListener("click", () => {
 });
 
 function createCard(cardData) {
-  const card = new Card(cardData, "#card-template", handleImageClick);
-  const cardElement = card.getView();
+  console.log(cardData);
+  api.createCard({ cardData }).then((cardData) => {
+    const card = new Card(cardData, "#card-template", handleImageClick);
+    const cardElement = card.getView();
+    section.addItem(cardElement);
+     
+  });
+  // const card = new Card(cardData, "#card-template", handleImageClick);
+  // const cardElement = card.getView();
 
   return cardElement;
 }
@@ -179,33 +151,3 @@ api
     console.error(err);
     alert(`${err}. Failed to load cards.`);
   });
-
-// api
-//   .addCard()
-//   .then((res) => {
-//     const cardData = renderCard({
-//       name: inputValues.name,
-//       link: inputValues.link,
-//     });
-//     cardSection.addItems(cardData);
-//     profileAddCardPopup.close();
-//   })
-
-//   .catch((err) => {
-//     console.error(err);
-//     alert(`${err}. Failed to add card.`);
-//   });
-
-// api
-//   .editUserProfile({
-//     name: res.name,
-//     about: res.description,
-//   })
-//   .then((res) => {
-//     userInfo.setUserInfo({ name: res.name, about: res.description });
-//     api.getUserInfo(userInfo._name, userInfo._about);
-//   })
-//   .catch((err) => {
-//     console.error(err);
-//     alert(`${err}.Failed to update profile`);
-//   });
