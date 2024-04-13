@@ -105,17 +105,15 @@ profileAddButton.addEventListener("click", () => {
 });
 
 function createCard(cardData) {
+  const { name, link } = cardData;
   console.log(cardData);
   api.createCard({ cardData }).then((cardData) => {
     const card = new Card(cardData, "#card-template", handleImageClick);
     const cardElement = card.getView();
     section.addItem(cardElement);
-     
-  });
-  // const card = new Card(cardData, "#card-template", handleImageClick);
-  // const cardElement = card.getView();
 
-  return cardElement;
+    return cardElement;
+  });
 }
 
 editFormValidator.enableValidation();
