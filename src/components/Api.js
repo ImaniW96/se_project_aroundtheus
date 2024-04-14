@@ -20,14 +20,11 @@ export default class Api {
     });
   }
 
-  createCard(cardData) {
+  createCard(inputValues) {
     return fetch(`${this._baseUrl}/cards`, {
       method: "POST",
       headers: this._headers,
-      body: JSON.stringify({
-        name: cardData.name,
-        link: cardData.link,
-      }),
+      body: JSON.stringify(inputValues),
     }).then((res) => {
       return this.checkResponse(res);
     });
