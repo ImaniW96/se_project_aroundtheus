@@ -142,5 +142,5 @@ api
   })
   .catch((err) => {
     console.error(err);
-    alert(`${err}. Failed to load cards.`);
+    alert(`${err}. Failed to add card.`);
   });
