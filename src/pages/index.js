@@ -123,10 +123,12 @@ api
   });
 
 // get cards from server and render them on the page
+let section;
+
 api
   .getInitialCards()
   .then((card) => {
-    const section = new Section(
+    section = new Section(
       {
         items: card,
         renderer: (cardData) => {
@@ -142,15 +144,3 @@ api
     console.error(err);
     alert(`${err}. Failed to load cards.`);
   });
-
-// function createCard(cardData) {
-//   const { name, link } = cardData;
-//   console.log(cardData);
-//   api.createCard({ cardData }).then((cardData) => {
-//     const card = new Card(cardData, "#card-template", handleImageClick);
-//     const cardElement = card.getView();
-//     section.addItem(cardElement);
-
-//     return cardElement;
-//   });
-// }
