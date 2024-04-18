@@ -39,6 +39,8 @@ const newCardPopup = new PopupWithForm("#profile-add-modal", (inputValues) => {
     addFormValidator.resetValidation();
   });
 });
+const confirmDeleteModal = new PopupWithForm("#confirm-card-delete");
+confirmDeleteModal.setEventListeners();
 
 const editProfilePopup = new PopupWithForm(
   "#profile-edit-modal",
@@ -90,7 +92,23 @@ const api = new Api({
 function handleImageClick(cardData) {
   imageCardPopup.open(cardData);
 }
-
+// function deleteCardModal() {
+//   this._cardDeleteButton.addEventListener("click", () => {
+//     this._handleDeleteCard();
+//   });
+// }
+function handleDeleteClick(card) {
+  console.log(card);
+  confirmDeleteModal.open();
+  api
+    .deleteCards()
+    .then(() => {
+      card.removeCard();
+    })
+    .catch((err) => {
+      console.err(err);
+    });
+}
 // EventListener
 
 profileEditButton.addEventListener("click", () => {
@@ -105,7 +123,12 @@ profileAddButton.addEventListener("click", () => {
 });
 
 function createCard(cardData) {
-  const card = new Card(cardData, "#card-template", handleImageClick);
+  const card = new Card(
+    cardData,
+    "#card-template",
+    handleImageClick,
+    handleDeleteClick
+  );
   return card.getView();
 }
 
