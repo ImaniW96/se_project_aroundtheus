@@ -92,11 +92,11 @@ const api = new Api({
 function handleImageClick(cardData) {
   imageCardPopup.open(cardData);
 }
-// function deleteCardModal() {
-//   this._cardDeleteButton.addEventListener("click", () => {
-//     this._handleDeleteCard();
-//   });
-// }
+function handleDeleteCard() {
+  this._cardDeleteButton.addEventListener("click", () => {
+    this._handleDeleteCard();
+  });
+}
 function handleDeleteClick(card) {
   console.log(card);
   confirmDeleteModal.open();
@@ -167,3 +167,5 @@ api
     console.error(err);
     alert(`${err}. Failed to add card.`);
   });
+
+// api.likeCards().then(()=>{})

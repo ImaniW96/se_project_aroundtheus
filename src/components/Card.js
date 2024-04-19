@@ -6,7 +6,7 @@ export default class Card {
     this._cardSelector = cardSelector;
     this._handleImageClick = handleImageClick;
     this._handleDeleteClick = handleDeleteClick;
-    this.id = card.id;
+    this.id = cardData.id;
   }
 
   _setEventListeners() {
