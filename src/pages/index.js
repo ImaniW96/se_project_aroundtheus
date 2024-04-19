@@ -100,14 +100,16 @@ function handleDeleteCard() {
 function handleDeleteClick(card) {
   console.log(card);
   confirmDeleteModal.open();
-  api
-    .deleteCards()
-    .then(() => {
-      card.removeCard();
-    })
-    .catch((err) => {
-      console.err(err);
-    });
+  confirmDeleteModal.setSubmitAction(() => {
+    api
+      .deleteCards()
+      .then(() => {
+        card.removeCard();
+      })
+      .catch((err) => {
+        console.err(err);
+      });
+  });
 }
 // EventListener
 

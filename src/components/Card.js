@@ -15,14 +15,14 @@ export default class Card {
     });
 
     this._cardDeleteButton.addEventListener("click", () => {
-      this._handleDeleteCard();
+      this._handleDeleteCard(this);
     });
     this._cardImageEl.addEventListener("click", () => {
       this._handleImageClick(this._cardData);
     });
-    this._handleDeleteCard
-      .querySelector(".confirm-card-delete")
-      .addEventListener("click", () => this._handleDeleteClick(this));
+    // this._handleDeleteCard
+    //   .querySelector(".confirm-card-delete")
+    //   .addEventListener("click", () => this._handleDeleteClick(this));
   }
   deletecard() {
     this._handleDeleteCard.remove();
