@@ -148,13 +148,9 @@
 }
 .modal__confirm_form {
   width: 430px;
-  height: 181px;
   background-color: #fff;
-  margin: auto;
-  padding: 36px;
   border-radius: 10px;
   position: relative;
-  visibility: hidden;
 }
 .modal__confirm_close {
   background-image: url(../images/closebutton.svg);

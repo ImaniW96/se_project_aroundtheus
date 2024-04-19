@@ -210,10 +210,10 @@
       </div>
     </div>
     <!-- Delete Card Popup -->
-    <div class="modal modal__confirm_close-modal" id="confirm-card-delete">
+    <div class="modal" id="confirm-card-delete">
       <div class="modal__container modal__confirm_container">
         <button
-          class="modal__close modal__confirm_close"
+          class="modal__close"
           id="confirm-card-close-button"
           aria-label="closebutton"
           type="button"
@@ -221,12 +221,7 @@
         <form class="modal__form modal__confirm_form">
           <h1 class="modal__heading">Are you sure?</h1>
 
-          <button
-            class="modal__button"
-            aria-label="savebutton"
-            type="submit"
-            disabled
-          >
+          <button class="modal__button" aria-label="savebutton" type="submit">
             Yes
           </button>
         </form>

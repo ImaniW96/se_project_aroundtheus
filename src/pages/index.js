@@ -33,13 +33,15 @@ import {
 
 const newCardPopup = new PopupWithForm("#profile-add-modal", (inputValues) => {
   api.createCard(inputValues).then((res) => {
-    const cardElement = createCard(inputValues);
+    // {name: newCard, link: http:sldfsk, _id: 1234, isLiked: false }
+    const cardElement = createCard(res);
     section.addItem(cardElement);
     newCardPopup.close();
     addFormValidator.resetValidation();
   });
 });
 const confirmDeleteModal = new PopupWithForm("#confirm-card-delete");
+
 confirmDeleteModal.setEventListeners();
 
 const editProfilePopup = new PopupWithForm(
@@ -97,20 +99,24 @@ function handleDeleteCard() {
     this._handleDeleteCard();
   });
 }
+// run when you click the delete button on a card
 function handleDeleteClick(card) {
   console.log(card);
   confirmDeleteModal.open();
   confirmDeleteModal.setSubmitAction(() => {
+    // this arrow function runs when you submit the confirmation modal
     api
-      .deleteCards()
+      .deleteCard(card.id)
       .then(() => {
-        card.removeCard();
+        card.deleteCard();
+        confirmDeleteModal.close();
       })
       .catch((err) => {
-        console.err(err);
+        console.error(err);
       });
   });
 }
+
 // EventListener
 
 profileEditButton.addEventListener("click", () => {
@@ -152,10 +158,10 @@ let section;
 
 api
   .getInitialCards()
-  .then((card) => {
+  .then((cards) => {
     section = new Section(
       {
-        items: card,
+        items: cards.reverse(),
         renderer: (cardData) => {
           const cardElement = createCard(cardData);
           section.addItem(cardElement);
