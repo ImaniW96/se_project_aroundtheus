@@ -104,6 +104,7 @@ function handleDeleteClick(card) {
   console.log(card);
   confirmDeleteModal.open();
   confirmDeleteModal.setSubmitAction(() => {
+    PopupWithForm.deleting(true);
     // this arrow function runs when you submit the confirmation modal
     api
       .deleteCard(card.id)
@@ -175,5 +176,47 @@ api
     console.error(err);
     alert(`${err}. Failed to add card.`);
   });
-
-// api.likeCards().then(()=>{})
+// function handleLikeClick( isliked, id, card) {
+//   api
+//     .likeCard()
+//     .then(() => {})
+//     .catch((err) => {
+//       console.error(err);
+//       alert(`${err}. Failed to like card`);
+//     });
+// }
+// api
+//   .dislikeCard()
+//   .then(() => {})
+//   .catch((err) => {
+//     console.error(err);
+//     alert(`${err}. Failed to dislike card`);
+//   });
+function isLiked(card, isCurrentlyLiked) {
+  if (isCurrentlyLiked) {
+    api
+      .removelike(this._card.Id)
+      .then(() => {
+        this._handleLikeIcon();
+      })
+      .catch((err) => {
+        console.error(err);
+        alert(`${err}. Failed to dislike card`);
+      });
+    removeLikeCard(card.getId).then(() => {
+      card.setIsLiked(false);
+    });
+  } else
+    api
+      .likeCard(this._card.Id)
+      .then(() => {
+        this._handleLikeIcon();
+      })
+      .catch((err) => {
+        console.error(err);
+        alert(`${err}. Failed to like card`);
+      });
+  addLikeCard(card.getId).then(() => {
+    card.setIsLiked(true);
+  });
+}

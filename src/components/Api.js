@@ -43,7 +43,7 @@ export default class Api {
     });
   }
 
-  likeCards(cardId, isLiked) {
+  likeCard(cardId, isLiked) {
     return fetch(`${this._baseUrl}/cards/${cardId}/likes`, {
       method: isLiked ? "DELETE" : "PUT",
       headers: this._headers,
@@ -59,7 +59,7 @@ export default class Api {
       return this.checkResponse(res);
     });
   }
-  dislikeCards() {
+  removelikeCard() {
     return fetch(`${this._baseUrl}/likes`, {
       method: "DELETE",
       headers: this._headers,

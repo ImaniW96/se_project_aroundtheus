@@ -3,8 +3,12 @@ export default class PopupWithForm extends Popup {
   constructor(popupSelector, handleFormSubmit) {
     super({ popupSelector });
     this._popupForm = this._popupElement.querySelector(".modal__form");
-
     this._handleFormSubmit = handleFormSubmit;
+    // this._deleteConfirmForm = this._popupElement.querySelector("modal__form");
+    // this._deleteConfirmSubmit = this._popupElement.querySelector(
+    //   "modal__deleting_save"
+    // );
+    // this._deleteSubmitConfirmText = this._deleteConfirmSubmit.textcontent;
   }
   setSubmitAction(callbackFn) {
     this._handleFormSubmit = callbackFn;
@@ -31,3 +35,18 @@ export default class PopupWithForm extends Popup {
     super.setEventListeners();
   }
 }
+//  deleting = (deleting, deletingText = "Deleting...") => {
+//   if (deleting) {
+//     this._deleteConfirmsubmit.textcontent = deletingText;
+//   } else {
+//     this._deleteConfirmSubmit.textcontent = this._deleteConfirmText;
+//   }
+// };
+
+// saving =(saving, savingText = "Saving...") =>{
+//   if (saving){
+//     this._saveConfirmsubmit.textcontent = savingText;
+//   } else{
+//     this._saveConfirmSubmit.textcontent = this._saveConfirmText;
+//   }
+// }
