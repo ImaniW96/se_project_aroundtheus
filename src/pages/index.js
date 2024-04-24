@@ -133,10 +133,13 @@ profileAddButton.addEventListener("click", () => {
 
 function createCard(cardData) {
   const card = new Card(
+    isLiked,
     cardData,
     "#card-template",
     handleImageClick,
-    handleDeleteClick
+    handleDeleteClick,
+    cardSelector,
+    handleLikeClick
   );
   return card.getView();
 }

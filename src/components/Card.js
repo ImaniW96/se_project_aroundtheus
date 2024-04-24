@@ -5,7 +5,7 @@ export default class Card {
     handleImageClick,
     handleDeleteClick,
     handleLikeClick,
-    isLked
+    isLiked
   ) {
     this._cardData = cardData;
     this._name = cardData.name;
