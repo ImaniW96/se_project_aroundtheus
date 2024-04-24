@@ -176,27 +176,12 @@ api
     console.error(err);
     alert(`${err}. Failed to add card.`);
   });
-// function handleLikeClick( isliked, id, card) {
-//   api
-//     .likeCard()
-//     .then(() => {})
-//     .catch((err) => {
-//       console.error(err);
-//       alert(`${err}. Failed to like card`);
-//     });
-// }
-// api
-//   .dislikeCard()
-//   .then(() => {})
-//   .catch((err) => {
-//     console.error(err);
-//     alert(`${err}. Failed to dislike card`);
-//   });
-function isLiked(card, isCurrentlyLiked) {
+
+function handleLikeClick(card, isCurrentlyLiked) {
   if (isCurrentlyLiked) {
     api
-      .removelike(this._card.Id)
-      .then(() => {
+      .removelike(card.card.Id)
+      .then((res) => {
         this._handleLikeIcon();
       })
       .catch((err) => {
@@ -208,15 +193,15 @@ function isLiked(card, isCurrentlyLiked) {
     });
   } else
     api
-      .likeCard(this._card.Id)
-      .then(() => {
+      .likeCard(card.card.Id)
+      .then((res) => {
         this._handleLikeIcon();
       })
       .catch((err) => {
         console.error(err);
         alert(`${err}. Failed to like card`);
       });
-  addLikeCard(card.getId).then(() => {
+  addLikeCard(card.getId).then((res) => {
     card.setIsLiked(true);
   });
 }
