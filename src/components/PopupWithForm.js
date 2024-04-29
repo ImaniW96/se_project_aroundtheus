@@ -34,19 +34,23 @@ export default class PopupWithForm extends Popup {
     });
     super.setEventListeners();
   }
-}
-//  deleting = (deleting, deletingText = "Deleting...") => {
-//   if (deleting) {
-//     this._deleteConfirmsubmit.textcontent = deletingText;
-//   } else {
-//     this._deleteConfirmSubmit.textcontent = this._deleteConfirmText;
-//   }
-// };
+  // setIsSaving(saving) {
+  //   saving = (saving, savingText = "Saving...") => {
+  //     if (saving) {
+  //       this._saveConfirmsubmit.textcontent = savingText;
+  //     } else {
+  //       this._saveConfirmSubmit.textcontent = this._saveConfirmText;
+  //     }
+  //   };
+  // }
 
-// saving =(saving, savingText = "Saving...") =>{
-//   if (saving){
-//     this._saveConfirmsubmit.textcontent = savingText;
-//   } else{
-//     this._saveConfirmSubmit.textcontent = this._saveConfirmText;
-//   }
-// }
+  // setIsDeleting(deleting) {
+  //   deleting = (deleting, deletingText = "Deleting...") => {
+  //     if (deleting) {
+  //       this._deleteConfirmsubmit.textcontent = deletingText;
+  //     } else {
+  //       this._deleteConfirmSubmit.textcontent = this._deleteConfirmText;
+  //     }
+  //   };
+  // }
+}

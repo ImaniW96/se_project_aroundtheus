@@ -50,6 +50,7 @@ const editProfilePopup = new PopupWithForm(
     console.log(inputValues);
     userInfo.setUserInfo(inputValues);
     editFormValidator.resetValidation();
+    setIsLoading();
     editProfilePopup.close();
 
     console.log(inputValues);
@@ -133,12 +134,11 @@ profileAddButton.addEventListener("click", () => {
 
 function createCard(cardData) {
   const card = new Card(
-    isLiked,
     cardData,
     "#card-template",
     handleImageClick,
     handleDeleteClick,
-    cardSelector,
+
     handleLikeClick
   );
   return card.getView();
@@ -180,31 +180,25 @@ api
     alert(`${err}. Failed to add card.`);
   });
 
-function handleLikeClick(card, isCurrentlyLiked) {
-  if (isCurrentlyLiked) {
+function handleLikeClick(card) {
+  if (card.isLiked) {
     api
-      .removelike(card.card.Id)
+      .removelike(card.id)
       .then((res) => {
-        this._handleLikeIcon();
+        this.setIsLiked(false);
       })
       .catch((err) => {
         console.error(err);
         alert(`${err}. Failed to dislike card`);
       });
-    removeLikeCard(card.getId).then(() => {
-      card.setIsLiked(false);
-    });
   } else
     api
-      .likeCard(card.card.Id)
+      .likeCard(card.id)
       .then((res) => {
-        this._handleLikeIcon();
+        this.setIsLiked(true);
       })
       .catch((err) => {
         console.error(err);
         alert(`${err}. Failed to like card`);
       });
-  addLikeCard(card.getId).then((res) => {
-    card.setIsLiked(true);
-  });
 }
