@@ -183,7 +183,7 @@ api
 function handleLikeClick(card) {
   if (card.isLiked) {
     api
-      .removelike(card.id)
+      .likeCard(card.id, card.IsLike)
       .then((res) => {
         this.setIsLiked(false);
       })

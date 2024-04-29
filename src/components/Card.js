@@ -68,7 +68,7 @@ export default class Card {
     this._cardImageEl.setAttribute("src", this._link);
     this._cardImageEl.setAttribute("alt", this._name);
     this._cardTitleEl.textContent = this._name;
-    // this._handleLikeIcon();
+
     this._setEventListeners();
     this.renderLike();
     return this._cardElement;

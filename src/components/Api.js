@@ -59,14 +59,7 @@ export default class Api {
       return this.checkResponse(res);
     });
   }
-  removelikeCard() {
-    return fetch(`${this._baseUrl}cards/${cardId}/likes`, {
-      method: "DELETE",
-      headers: this._headers,
-    }).then((res) => {
-      return this.checkResponse(res);
-    });
-  }
+
   loadUserInfo() {
     return fetch("https://around-api.en.tripleten-services.com/v1/users/me", {
       method: "GET",
