@@ -24,16 +24,25 @@
       </header>
       <main class="content">
         <section class="profile">
-          <img
-            class="profile__image"
-            src="<%= require('./images/jacques-cousteau.jpg')%>"
-          />
+          <div class="profile__container">
+            <img
+              class="profile__image"
+              src="<%= require('./images/jacques-cousteau.jpg')%>"
+            />
+
+            <button
+              type="button"
+              aria-label="profileeditbutton"
+              class="profile__icon"
+              id="profile-icon"
+            ></button>
+          </div>
 
           <div class="profile__info">
             <h1 class="profile__title">Jacques Cousteau</h1>
             <button
               type="button"
-              aria-label="likebutton"
+              aria-label="editbutton"
               class="profile__edit-button"
               id="profile-edit-button"
             ></button>
@@ -173,8 +182,8 @@
       </div>
     </div>
     <!-- Change Profile picture Popup -->
-    <div class="modal" id="profile-picture-modal">
-      <div class="modal__container_pfp">
+    <div class="modal" id="profile-picture-icon">
+      <div class="modal__container">
         <button
           class="modal__close"
           id="profile-picture-close-button"
@@ -186,18 +195,15 @@
 
           <label class="modal__label">
             <input
-              type="url"
+              type="link"
               name="link"
               id="profile-picture-link-input"
               placeholder="image URL"
               class="modal__input modal__input_type_url"
               required
             />
-            <span
-              class="modal__error"
-              id="profile-add-description-input-error"
-            ></span>
           </label>
+
           <button
             class="modal__button modal__button_disabled"
             aria-label="savebutton"

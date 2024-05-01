@@ -5,6 +5,7 @@ export const previewCardModal = document.querySelector("#preview-card-modal");
 export const profileTitle = document.querySelector(".profile__title");
 export const previewImageEl = document.querySelector(".modal__image");
 export const previewCaptionEl = document.querySelector(".modal__caption");
+export const profileIcon = document.querySelector("#profile-icon");
 
 export const profileDescription = document.querySelector(
   ".profile__description"
@@ -32,6 +33,7 @@ export const addCardCloseButton = document.querySelector(
   "#add-card-close-button"
 );
 export const cardURLInput = addForm.querySelector(".modal__input_type_url");
+export const profileURLInput = addForm.querySelector(".modal__input_type_url");
 export const previewImageCloseModal = document.querySelector(
   "#preview-card-image-close-button"
 );

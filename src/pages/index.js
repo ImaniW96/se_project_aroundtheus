@@ -8,6 +8,7 @@ import UserInfo from "../components/UserInfo.js";
 import { initialCards } from "../utils/constants.js";
 import Api from "../components/Api.js";
 import {
+  profileIcon,
   profileEditButton,
   profileEditModal,
   addModal,
@@ -41,8 +42,19 @@ const newCardPopup = new PopupWithForm("#profile-add-modal", (inputValues) => {
   });
 });
 const confirmDeleteModal = new PopupWithForm("#confirm-card-delete");
+const changeProfilePicture = new PopupWithForm("#profile-picture-icon");
 
 confirmDeleteModal.setEventListeners();
+const changeProfile = new PopupWithForm("#profile-picture-icon", (avatar) => {
+  api
+    .updateProfilePicture(avatar)
+    .then((res) => {
+      userInformation.setUserAvatar(res.avatar);
+    })
+    .catch((err) => {
+      console.error(err);
+    });
+});
 
 const editProfilePopup = new PopupWithForm(
   "#profile-edit-modal",
@@ -83,6 +95,7 @@ const userInfo = new UserInfo(".profile__title", ".profile__description");
 
 const editFormValidator = new FormValidator(config, profileEditForm);
 const addFormValidator = new FormValidator(config, addForm);
+// const profilePictureValidator = new FormValidator(config, profilePictureValidation);
 const api = new Api({
   baseUrl: "https://around-api.en.tripleten-services.com/v1",
   headers: {
@@ -120,6 +133,10 @@ function handleDeleteClick(card) {
 }
 
 // EventListener
+changeProfilePicture.setEventListeners();
+profileIcon.addEventListener("click", () => {
+  changeProfile.open();
+});
 
 profileEditButton.addEventListener("click", () => {
   const { name, about } = userInfo.getUserInfo();
@@ -143,9 +160,13 @@ function createCard(cardData) {
   );
   return card.getView();
 }
+function updateProfilePicture() {
+  updateProfilePicture.setEventListeners();
+}
 
 editFormValidator.enableValidation();
 addFormValidator.enableValidation();
+// profilePictureValidator.enableValidation();
 //get user info from server and set it locally on the page
 api
   .loadUserInfo()
