@@ -60,7 +60,7 @@ const editProfilePopup = new PopupWithForm(
   "#profile-edit-modal",
   (inputValues) => {
     console.log(inputValues);
-    userInfo.setUserInfo(inputValues);
+    // userInfo.setUserInfo(inputValues);
     editFormValidator.resetValidation();
     // setIsLoading();
     editProfilePopup.close();
@@ -72,9 +72,8 @@ const editProfilePopup = new PopupWithForm(
         about: inputValues.about,
       })
 
-      .then((res) => {
-        userInfo.setUserInfo({ name: res.name, about: res.description });
-        api.getUserInfo(userInfo._name, userInfo._about);
+      .then(({ name, about }) => {
+        userInfo.setUserInfo({ name, about });
       })
       .catch((err) => {
         console.error(err);
@@ -95,7 +94,10 @@ const userInfo = new UserInfo(".profile__title", ".profile__description");
 
 const editFormValidator = new FormValidator(config, profileEditForm);
 const addFormValidator = new FormValidator(config, addForm);
-// const profilePictureValidator = new FormValidator(config, profilePictureValidation);
+// const profilePictureValidator = new FormValidator(
+//   config,
+//   profilePictureValidation
+// );
 const api = new Api({
   baseUrl: "https://around-api.en.tripleten-services.com/v1",
   headers: {
@@ -136,6 +138,7 @@ function handleDeleteClick(card) {
 changeProfilePicture.setEventListeners();
 profileIcon.addEventListener("click", () => {
   changeProfile.open();
+  // profilePictureValidation.enableValidation();
 });
 
 profileEditButton.addEventListener("click", () => {
