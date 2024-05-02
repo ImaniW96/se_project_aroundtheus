@@ -62,7 +62,7 @@ const editProfilePopup = new PopupWithForm(
     console.log(inputValues);
     userInfo.setUserInfo(inputValues);
     editFormValidator.resetValidation();
-    setIsLoading();
+    // setIsLoading();
     editProfilePopup.close();
 
     console.log(inputValues);
