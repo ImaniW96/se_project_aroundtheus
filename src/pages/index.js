@@ -94,10 +94,7 @@ const userInfo = new UserInfo(".profile__title", ".profile__description");
 
 const editFormValidator = new FormValidator(config, profileEditForm);
 const addFormValidator = new FormValidator(config, addForm);
-// const profilePictureValidator = new FormValidator(
-//   config,
-//   profilePictureValidation
-// );
+const profilePictureValidator = new FormValidator(config, profilePictureForm);
 const api = new Api({
   baseUrl: "https://around-api.en.tripleten-services.com/v1",
   headers: {
@@ -169,7 +166,7 @@ function updateProfilePicture() {
 
 editFormValidator.enableValidation();
 addFormValidator.enableValidation();
-// profilePictureValidator.enableValidation();
+profilePictureValidator.enableValidation();
 //get user info from server and set it locally on the page
 api
   .loadUserInfo()
