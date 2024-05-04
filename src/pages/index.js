@@ -22,6 +22,7 @@ import {
   profileDescriptionInput,
   profileEditForm,
   addForm,
+  profilePictureForm,
   cardsList,
   cardList,
   cardTemplate,
@@ -95,6 +96,7 @@ const userInfo = new UserInfo(".profile__title", ".profile__description");
 const editFormValidator = new FormValidator(config, profileEditForm);
 const addFormValidator = new FormValidator(config, addForm);
 const profilePictureValidator = new FormValidator(config, profilePictureForm);
+
 const api = new Api({
   baseUrl: "https://around-api.en.tripleten-services.com/v1",
   headers: {

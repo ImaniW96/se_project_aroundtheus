@@ -23,9 +23,10 @@ export const profileDescriptionInput = document.querySelector(
 );
 
 export const profileEditForm = profileEditModal.querySelector(".modal__form");
+
 export const addForm = addModal.querySelector(".modal__form");
 export const profilePictureForm =
-  profilePictureForm.querySelector(".modal__form");
+  profilePictureModal.querySelector(".modal__form");
 export const cardsList = document.querySelector(".cards__list");
 export const cardList = document.querySelector(".cards__list");
 export const cardTemplate =
