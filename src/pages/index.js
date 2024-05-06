@@ -33,9 +33,16 @@ import {
   config,
 } from "../utils/constants.js";
 
+const handleAddCardSubmit = (inputValues) => {
+  api.createCard(inputValues).then((res) => {
+    const cardElement = createCard(res);
+    section.addItem(cardElement);
+    newCardPopup.close();
+    addFormValidator.resetValidation();
+  });
+};
 const newCardPopup = new PopupWithForm("#profile-add-modal", (inputValues) => {
   api.createCard(inputValues).then((res) => {
-    // {name: newCard, link: http:sldfsk, _id: 1234, isLiked: false }
     const cardElement = createCard(res);
     section.addItem(cardElement);
     newCardPopup.close();
