@@ -4,6 +4,7 @@ export default class PopupWithForm extends Popup {
     super({ popupSelector });
     this._popupForm = this._popupElement.querySelector(".modal__form");
     this._handleFormSubmit = handleFormSubmit;
+    this._submitButton = this._popupForm.querySelector(".modal__button");
     // this._deleteConfirmForm = this._popupElement.querySelector("modal__form");
     // this._deleteConfirmSubmit = this._popupElement.querySelector(
     //   "modal__deleting_save"
@@ -33,6 +34,9 @@ export default class PopupWithForm extends Popup {
       this._handleFormSubmit(inputValues);
     });
     super.setEventListeners();
+  }
+  setSubmitButtonText(text) {
+    this._submitButton.textContent = text;
   }
   // setIsSaving(saving) {
   //   saving = (saving, savingText = "Saving...") => {

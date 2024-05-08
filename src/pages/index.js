@@ -49,15 +49,54 @@ const newCardPopup = new PopupWithForm("#profile-add-modal", (inputValues) => {
     addFormValidator.resetValidation();
   });
 });
-const confirmDeleteModal = new PopupWithForm("#confirm-card-delete");
-const changeProfilePicture = new PopupWithForm("#profile-picture-icon");
+const confirmDeleteModal = new PopupWithForm(
+  "#confirm-card-delete",
+  (inputValues) => {
+    api
+      .deleteCard(card.id)
+      .then(() => {
+        card.deleteCard();
+        confirmDeleteModal.close();
+        renderItems();
+      })
+      .catch((err) => {
+        console.error(err);
+      });
+  }
+);
+const changeProfilePicture = new PopupWithForm(
+  "#profile-picture-icon",
+  (inputValues) => {
+    api
+      .updateProfilePicture(inputValues)
+      .then((res) => {
+        userInfo.setUserAvatar(res);
+      })
+      .catch((err) => {
+        console.error(err);
+      });
+  }
+);
+// const handleFormSubmit = new PopupWithForm("#profile-picture-icon");
 
+const handleAddSubmit = new PopupWithForm(
+  "#profile-picture-icon",
+  (inputValues) => {
+    api.createCard(inputValues).then((res) => {
+      const cardElement = createCard(res);
+      section.addItem(cardElement);
+      newCardPopup.close();
+      addFormValidator.resetValidation();
+      renderItems();
+    });
+  }
+);
 confirmDeleteModal.setEventListeners();
 const changeProfile = new PopupWithForm("#profile-picture-icon", (avatar) => {
   api
     .updateProfilePicture(avatar)
     .then((res) => {
-      userInformation.setUserAvatar(res.avatar);
+      userInfo.setUserAvatar(res.avatar);
     })
     .catch((err) => {
       console.error(err);
@@ -74,6 +113,7 @@ const editProfilePopup = new PopupWithForm(
     editProfilePopup.close();
 
     console.log(inputValues);
+    editProfilePopup.setSubmitButtonText("Saving....");
     api
       .editUserProfile({
         name: inputValues.name,
@@ -86,6 +126,9 @@ const editProfilePopup = new PopupWithForm(
       .catch((err) => {
         console.error(err);
         alert(`${err}.Failed to update profile`);
+      })
+      .finally(() => {
+        editProfilePopup.setSubmitButtonText("Save");
       });
   }
 );
@@ -98,7 +141,11 @@ imageCardPopup.setEventListeners();
 
 //Elements
 
-const userInfo = new UserInfo(".profile__title", ".profile__description");
+const userInfo = new UserInfo(
+  ".profile__title",
+  ".profile__description",
+  ".profile__image"
+);
 
 const editFormValidator = new FormValidator(config, profileEditForm);
 const addFormValidator = new FormValidator(config, addForm);
@@ -126,7 +173,7 @@ function handleDeleteClick(card) {
   console.log(card);
   confirmDeleteModal.open();
   confirmDeleteModal.setSubmitAction(() => {
-    PopupWithForm.deleting(true);
+    // PopupWithForm.deleting(true);
     // this arrow function runs when you submit the confirmation modal
     api
       .deleteCard(card.id)
@@ -181,6 +228,7 @@ api
   .loadUserInfo()
   .then((info) => {
     userInfo.setUserInfo(info);
+    userInfo.setUserAvatar(info);
   })
   .catch((err) => {
     console.error(err);
@@ -211,24 +259,13 @@ api
   });
 
 function handleLikeClick(card) {
-  if (card.isLiked) {
-    api
-      .likeCard(card.id, card.IsLike)
-      .then((res) => {
-        this.setIsLiked(false);
-      })
-      .catch((err) => {
-        console.error(err);
-        alert(`${err}. Failed to dislike card`);
-      });
-  } else
-    api
-      .likeCard(card.id)
-      .then((res) => {
-        this.setIsLiked(true);
-      })
-      .catch((err) => {
-        console.error(err);
-        alert(`${err}. Failed to like card`);
-      });
+  api
+    .likeCard(card.id, card.isLiked)
+    .then((res) => {
+      card.setIsLiked();
+    })
+    .catch((err) => {
+      console.error(err);
+      alert(`${err}. Failed to like or dislike card`);
+    });
 }

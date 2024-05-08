@@ -48,8 +48,8 @@ export default class Card {
     }
   }
 
-  setIsLiked(isLiked) {
-    this.isLiked = isLiked;
+  setIsLiked() {
+    this.isLiked = !this.isLiked;
     this.renderLike();
   }
   _getTemplate() {
