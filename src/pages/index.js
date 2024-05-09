@@ -82,6 +82,7 @@ const changeProfilePicture = new PopupWithForm(
       .updateProfilePicture(inputValues)
       .then((res) => {
         userInfo.setUserAvatar(res);
+        changeProfilePicture.close();
       })
       .catch((err) => {
         console.error(err);
@@ -92,48 +93,15 @@ const changeProfilePicture = new PopupWithForm(
   }
 );
 
-const handleAddSubmit = new PopupWithForm(
-  "#profile-picture-icon",
-  (inputValues) => {
-    handleAddSubmit.setSubmitButtonText("Saving....");
-    api
-      .createCard(inputValues)
-      .then((res) => {
-        const cardElement = createCard(res);
-        section.addItem(cardElement);
-        newCardPopup.close();
-        addFormValidator.resetValidation();
-        renderItems();
-      })
-      .finally(() => {
-        handleAddSubmit.setSubmitButtonText("Save");
-      });
-  }
-);
 confirmDeleteModal.setEventListeners();
-
-const changeProfile = new PopupWithForm("#profile-picture-icon", (avatar) => {
-  changeProfilePicture.setSubmitButtonText("Saving....");
-  api
-    .updateProfilePicture(avatar)
-    .then((res) => {
-      userInfo.setUserAvatar(res.avatar);
-    })
-    .catch((err) => {
-      console.error(err);
-    })
-    .finally(() => {
-      editProfilePopup.setSubmitButtonText("Save");
-    });
-});
 
 const editProfilePopup = new PopupWithForm(
   "#profile-edit-modal",
   (inputValues) => {
     console.log(inputValues);
-    // userInfo.setUserInfo(inputValues);
+
     editFormValidator.resetValidation();
-    // setIsLoading();
+
     editProfilePopup.close();
 
     console.log(inputValues);
@@ -197,7 +165,7 @@ function handleDeleteClick(card) {
   console.log(card);
   confirmDeleteModal.open();
   confirmDeleteModal.setSubmitAction(() => {
-    // PopupWithForm.deleting(true);
+    confirmDeleteModal.setSubmitButtonText("Deleting....");
     // this arrow function runs when you submit the confirmation modal
     api
       .deleteCard(card.id)
@@ -207,6 +175,9 @@ function handleDeleteClick(card) {
       })
       .catch((err) => {
         console.error(err);
+      })
+      .finally(() => {
+        confirmDeleteModal.setSubmitButtonText("Delete");
       });
   });
 }
@@ -214,7 +185,7 @@ function handleDeleteClick(card) {
 // EventListener
 changeProfilePicture.setEventListeners();
 profileIcon.addEventListener("click", () => {
-  changeProfile.open();
+  changeProfilePicture.open();
 });
 
 profileEditButton.addEventListener("click", () => {
