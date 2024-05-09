@@ -42,16 +42,23 @@ const handleAddCardSubmit = (inputValues) => {
   });
 };
 const newCardPopup = new PopupWithForm("#profile-add-modal", (inputValues) => {
-  api.createCard(inputValues).then((res) => {
-    const cardElement = createCard(res);
-    section.addItem(cardElement);
-    newCardPopup.close();
-    addFormValidator.resetValidation();
-  });
+  newCardPopup.setSubmitButtonText("Saving....");
+  api
+    .createCard(inputValues)
+    .then((res) => {
+      const cardElement = createCard(res);
+      section.addItem(cardElement);
+      newCardPopup.close();
+      addFormValidator.resetValidation();
+    })
+    .finally(() => {
+      newCardPopup.setSubmitButtonText("Save");
+    });
 });
 const confirmDeleteModal = new PopupWithForm(
   "#confirm-card-delete",
   (inputValues) => {
+    confirmDeleteModal.setSubmitButtonText("Deleting....");
     api
       .deleteCard(card.id)
       .then(() => {
@@ -61,12 +68,16 @@ const confirmDeleteModal = new PopupWithForm(
       })
       .catch((err) => {
         console.error(err);
+      })
+      .finally(() => {
+        confirmDeleteModal.setSubmitButtonText("Delete");
       });
   }
 );
 const changeProfilePicture = new PopupWithForm(
   "#profile-picture-icon",
   (inputValues) => {
+    changeProfilePicture.setSubmitButtonText("Saving....");
     api
       .updateProfilePicture(inputValues)
       .then((res) => {
@@ -74,25 +85,35 @@ const changeProfilePicture = new PopupWithForm(
       })
       .catch((err) => {
         console.error(err);
+      })
+      .finally(() => {
+        changeProfilePicture.setSubmitButtonText("Save");
       });
   }
 );
-// const handleFormSubmit = new PopupWithForm("#profile-picture-icon");
 
 const handleAddSubmit = new PopupWithForm(
   "#profile-picture-icon",
   (inputValues) => {
-    api.createCard(inputValues).then((res) => {
-      const cardElement = createCard(res);
-      section.addItem(cardElement);
-      newCardPopup.close();
-      addFormValidator.resetValidation();
-      renderItems();
-    });
+    handleAddSubmit.setSubmitButtonText("Saving....");
+    api
+      .createCard(inputValues)
+      .then((res) => {
+        const cardElement = createCard(res);
+        section.addItem(cardElement);
+        newCardPopup.close();
+        addFormValidator.resetValidation();
+        renderItems();
+      })
+      .finally(() => {
+        handleAddSubmit.setSubmitButtonText("Save");
+      });
   }
 );
 confirmDeleteModal.setEventListeners();
+
 const changeProfile = new PopupWithForm("#profile-picture-icon", (avatar) => {
+  changeProfilePicture.setSubmitButtonText("Saving....");
   api
     .updateProfilePicture(avatar)
     .then((res) => {
@@ -100,6 +121,9 @@ const changeProfile = new PopupWithForm("#profile-picture-icon", (avatar) => {
     })
     .catch((err) => {
       console.error(err);
+    })
+    .finally(() => {
+      editProfilePopup.setSubmitButtonText("Save");
     });
 });
 
@@ -191,7 +215,6 @@ function handleDeleteClick(card) {
 changeProfilePicture.setEventListeners();
 profileIcon.addEventListener("click", () => {
   changeProfile.open();
-  // profilePictureValidation.enableValidation();
 });
 
 profileEditButton.addEventListener("click", () => {
