@@ -34,7 +34,11 @@ export default class Card {
     this._cardElement.remove();
     this._cardElement = null;
   }
-
+  handleDeleteCard() {
+    this._cardDeleteButton.addEventListener("click", () => {
+      this.handleDeleteCard();
+    });
+  }
   renderLike() {
     if (this.isLiked) {
       this._likeButton.classList.add("card__like-button_active");

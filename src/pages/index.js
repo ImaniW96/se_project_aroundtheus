@@ -33,14 +33,14 @@ import {
   config,
 } from "../utils/constants.js";
 
-const handleAddCardSubmit = (inputValues) => {
-  api.createCard(inputValues).then((res) => {
-    const cardElement = createCard(res);
-    section.addItem(cardElement);
-    newCardPopup.close();
-    addFormValidator.resetValidation();
-  });
-};
+// const handleAddCardSubmit = (inputValues) => {
+//   api.createCard(inputValues).then((res) => {
+//     const cardElement = createCard(res);
+//     section.addItem(cardElement);
+//     newCardPopup.close();
+//     addFormValidator.resetValidation();
+//   });
+// };
 const newCardPopup = new PopupWithForm("#profile-add-modal", (inputValues) => {
   newCardPopup.setSubmitButtonText("Saving....");
   api
@@ -50,6 +50,10 @@ const newCardPopup = new PopupWithForm("#profile-add-modal", (inputValues) => {
       section.addItem(cardElement);
       newCardPopup.close();
       addFormValidator.resetValidation();
+    })
+    .catch((err) => {
+      console.error(err);
+      alert(`${err}. Failed to add new card.`);
     })
     .finally(() => {
       newCardPopup.setSubmitButtonText("Save");
@@ -68,6 +72,7 @@ const confirmDeleteModal = new PopupWithForm(
       })
       .catch((err) => {
         console.error(err);
+        alert(`${err}. Failed to delete card.`);
       })
       .finally(() => {
         confirmDeleteModal.setSubmitButtonText("Delete");
@@ -86,6 +91,7 @@ const changeProfilePicture = new PopupWithForm(
       })
       .catch((err) => {
         console.error(err);
+        alert(`${err}. Failed to change profile picture.`);
       })
       .finally(() => {
         changeProfilePicture.setSubmitButtonText("Save");
@@ -102,8 +108,6 @@ const editProfilePopup = new PopupWithForm(
 
     editFormValidator.resetValidation();
 
-    editProfilePopup.close();
-
     console.log(inputValues);
     editProfilePopup.setSubmitButtonText("Saving....");
     api
@@ -114,6 +118,7 @@ const editProfilePopup = new PopupWithForm(
 
       .then(({ name, about }) => {
         userInfo.setUserInfo({ name, about });
+        editProfilePopup.close();
       })
       .catch((err) => {
         console.error(err);
@@ -155,11 +160,11 @@ const api = new Api({
 function handleImageClick(cardData) {
   imageCardPopup.open(cardData);
 }
-function handleDeleteCard() {
-  this._cardDeleteButton.addEventListener("click", () => {
-    this._handleDeleteCard();
-  });
-}
+// function handleDeleteCard() {
+//   this._cardDeleteButton.addEventListener("click", () => {
+//     this._handleDeleteCard();
+//   });
+// }
 // run when you click the delete button on a card
 function handleDeleteClick(card) {
   console.log(card);
@@ -175,6 +180,7 @@ function handleDeleteClick(card) {
       })
       .catch((err) => {
         console.error(err);
+        alert(`${err}. Failed to delete card.`);
       })
       .finally(() => {
         confirmDeleteModal.setSubmitButtonText("Delete");

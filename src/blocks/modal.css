@@ -96,6 +96,10 @@
   transition: 0.3s ease;
   cursor: pointer;
 }
+.modal__button:hover:not(:disabled) {
+  opacity: 0.8;
+  cursor: pointer;
+}
 .modal__close:hover {
   opacity: 0.8;
   transition: 0.3s ease;
