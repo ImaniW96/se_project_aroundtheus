@@ -6,6 +6,7 @@ import PopupWithForm from "../components/PopupWithForm.js";
 import PopupWithImage from "../components/PopupWithImage.js";
 import UserInfo from "../components/UserInfo.js";
 import { initialCards } from "../utils/constants.js";
+import PopupWithConfirmation from "../components/PopupWithConfirmation.js";
 import Api from "../components/Api.js";
 import {
   profileIcon,
@@ -59,7 +60,8 @@ const newCardPopup = new PopupWithForm("#profile-add-modal", (inputValues) => {
       newCardPopup.setSubmitButtonText("Save");
     });
 });
-const confirmDeleteModal = new PopupWithForm(
+// const confirmation = new PopupWithConfirmation(() => {});
+const confirmDeleteModal = new PopupWithConfirmation(
   "#confirm-card-delete",
   (inputValues) => {
     confirmDeleteModal.setSubmitButtonText("Deleting....");
