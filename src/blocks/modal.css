@@ -52,6 +52,10 @@
   border-radius: 10px;
   position: relative;
 }
+.modal__container_pfp {
+  width: 430px;
+  height: 272px;
+}
 .modal__close {
   background-image: url(../images/closebutton.svg);
   border: none;
@@ -86,11 +90,20 @@
 .modal__button_disabled {
   background-color: grey;
   opacity: 0.2;
+  /* cursor: default; */
 }
 .modal__button:hover {
   opacity: 0.8;
   transition: 0.3s ease;
   cursor: pointer;
+}
+.modal__button:hover:not(:disabled) {
+  opacity: 0.8;
+  cursor: pointer;
+}
+.modal__button_disabled:hover {
+  opacity: 0.2;
+  cursor: default;
 }
 .modal__close:hover {
   opacity: 0.8;
@@ -137,6 +150,34 @@
 .modal__label {
   position: relative;
   color: #000;
+}
+.modal__confirm_close-modal {
+  width: 430px;
+  height: 181px;
+}
+.modal__confirm_form {
+  width: 430px;
+  background-color: #fff;
+  border-radius: 10px;
+  position: relative;
+}
+.modal__confirm_close {
+  background-image: url(../images/closebutton.svg);
+  border: none;
+  width: 40px;
+  height: 40px;
+  background-color: transparent;
+  background-repeat: no-repeat;
+  background-size: contain;
+  position: absolute;
+  bottom: calc(100% + 5px);
+  left: calc(70% + 3px);
+  cursor: pointer;
+}
+
+.modal__confirm_container {
+  width: 430px;
+  height: 180px;
 }
 @media screen and (max-width: 630px) {
   .modal__container {

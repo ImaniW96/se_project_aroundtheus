@@ -24,20 +24,26 @@
       </header>
       <main class="content">
         <section class="profile">
-          <img
-            class="profile__image"
-            src="<%= require('./images/jacques-cousteau.jpg')%>"
-          />
+          <div class="profile__container">
+            <img class="profile__image" src="#" />
 
-          <div class="profile__info">
-            <h1 class="profile__title">Jacques Cousteau</h1>
             <button
               type="button"
-              aria-label="likebutton"
+              aria-label="profileeditbutton"
+              class="profile__icon"
+              id="profile-icon"
+            ></button>
+          </div>
+
+          <div class="profile__info">
+            <h1 class="profile__title"></h1>
+            <button
+              type="button"
+              aria-label="editbutton"
               class="profile__edit-button"
               id="profile-edit-button"
             ></button>
-            <p class="profile__description">Explorer</p>
+            <p class="profile__description"></p>
           </div>
           <button
             type="button"
@@ -170,6 +176,62 @@
           aria-label="closebutton"
           type="button"
         ></button>
+      </div>
+    </div>
+    <!-- Change Profile picture Popup -->
+    <div class="modal" id="profile-picture-icon">
+      <div class="modal__container">
+        <button
+          class="modal__close"
+          id="profile-picture-close-button"
+          aria-label="closebutton"
+          type="button"
+        ></button>
+        <form class="modal__form">
+          <h1 class="modal__heading">Change Profile Picture</h1>
+
+          <label class="modal__label">
+            <input
+              type="url"
+              name="link"
+              id="profile-picture-link-input"
+              placeholder="image URL"
+              class="modal__input modal__input_type_url"
+              required
+            />
+            <span
+              class="modal__error"
+              id="profile-picture-link-input-error"
+            ></span>
+          </label>
+
+          <button
+            class="modal__button modal__button_disabled"
+            aria-label="savebutton"
+            type="submit"
+            disabled
+          >
+            Save
+          </button>
+        </form>
+      </div>
+    </div>
+    <!-- Delete Card Popup -->
+    <div class="modal" id="confirm-card-delete">
+      <div class="modal__container modal__confirm_container">
+        <button
+          class="modal__close"
+          id="confirm-card-close-button"
+          aria-label="closebutton"
+          type="button"
+        ></button>
+        <form class="modal__form modal__confirm_form">
+          <h1 class="modal__heading">Are you sure?</h1>
+
+          <button class="modal__button" aria-label="savebutton" type="submit">
+            Yes
+          </button>
+        </form>
       </div>
     </div>
 

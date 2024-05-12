@@ -62,7 +62,19 @@
   border-radius: 50%;
   object-fit: cover;
   background-position: center;
+}
+.profile__container {
+  position: relative;
   margin-right: 24px;
+}
+.profile__container:hover .profile__image {
+  opacity: 0.2;
+}
+/* .profile__image:hover {
+  opacity: 0.2;
+} */
+.profile__container:hover .profile__icon {
+  opacity: 1;
 }
 .profile__add-button:hover {
   opacity: 0.6;
@@ -70,6 +82,22 @@
 .profile__edit-button:hover {
   opacity: 0.6;
 }
+.profile__icon {
+  background: transparent url(../images/icon.svg) center no-repeat;
+  width: 24px;
+  height: 24px;
+  background-size: contain;
+  border: none;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  top: 50%;
+  left: 50%;
+  opacity: 0;
+  cursor: pointer;
+}
+/* .profile__icon:hover {
+  visibility: visible;
+} */
 
 @media screen and (max-width: 620px) {
   .profile {
