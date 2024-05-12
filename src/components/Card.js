@@ -39,7 +39,7 @@ export default class Card {
       this.handleDeleteCard();
     });
   }
-  renderLike() {
+  _renderLike() {
     if (this.isLiked) {
       this._likeButton.classList.add("card__like-button_active");
     } else {
@@ -47,9 +47,9 @@ export default class Card {
     }
   }
 
-  setIsLiked() {
+  setIsLiked(res) {
     this.isLiked = !this.isLiked;
-    this.renderLike();
+    this._renderLike();
   }
   _getTemplate() {
     this._cardElement = document
@@ -69,7 +69,7 @@ export default class Card {
     this._cardTitleEl.textContent = this._name;
 
     this._setEventListeners();
-    this.renderLike();
+    this._renderLike();
     return this._cardElement;
   }
 }
